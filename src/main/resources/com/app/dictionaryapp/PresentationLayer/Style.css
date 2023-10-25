@@ -1,0 +1,39 @@
+.btn {
+    -fx-background-color: #023b6d;
+}
+
+.btn:hover {
+    -fx-background-color: #307aa7;
+}
+
+#txtFieldSearch {
+    -fx-background-color: #EFF3F6;
+}
+
+#btnSearch {
+
+}
+
+#btnVoice {
+
+}
+
+#btnSetting {
+
+}
+
+#btnStar:hover {
+    -fx-background-color: red;
+}
+
+#btnSound {
+
+}
+
+#topApp {
+    -fx-background-color: #023b6d;
+}
+
+#settingScene {
+    -fx-background-image: url("Icon/SettingBackground.jpg");
+}

@@ -1,3 +1,16 @@
+
+#textTranslation {
+
+}
+
+#displayWord {
+
+}
+
+#introPane {
+    -fx-background-image: url("Icon/IntroBackground.jpg");
+}
+
 .btn {
     -fx-background-color: #023b6d;
 }
@@ -36,4 +49,21 @@
 
 #settingScene {
     -fx-background-image: url("Icon/SettingBackground.jpg");
+}
+
+.text-area {
+    -fx-background-color: white;
+
+    /* Shadow effect */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 5.0, 5.0);
+}
+.text-area .content {
+    -fx-background-color: white;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+.text-area:focused .content {
+    -fx-background-color: white;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
 }

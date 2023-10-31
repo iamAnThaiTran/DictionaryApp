@@ -1,26 +1,41 @@
 package com.app.dictionaryapp.BusinessLogicLayer;
 
 import animatefx.animation.*;
+import com.app.dictionaryapp.DataAccessLayer.Database;
 import com.jfoenix.controls.JFXTextArea;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ScrollBar;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
-import javafx.scene.control.TextField;
+import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import com.app.dictionaryapp.DataAccessLayer.Database;
 
 public class BusinessLogic {
 
+    // Pane
     @FXML
-    private AnchorPane displayWord;
+    private AnchorPane introPane;
 
+    @FXML
+    private AnchorPane mainPane;
+    @FXML
+    private AnchorPane displayWordSound;
+    @FXML
+    private AnchorPane textTranslation;
+    @FXML
+    private AnchorPane editPane;
+    @FXML
+    private ScrollPane displaySuggest;
+
+
+    // Button
     @FXML
     private Button btnDaily;
 
@@ -36,37 +51,55 @@ public class BusinessLogic {
     @FXML
     private Button btnSearch;
 
-    @FXML
-    private Button btnVoice;
 
+    // vbox
     @FXML
     private VBox dictionaryDisplay;
 
+    // text field
     @FXML
     private TextField txtFieldSearch;
-
     @FXML
     private JFXTextArea textToDisplay;
 
+    // image
     @FXML
     private ImageView btnSetting;
+    @FXML
+    private ImageView btnStarToMark;
+    @FXML
+    private ImageView btnStarToUnMark;
 
     @FXML
-    private ScrollPane displaySuggest;
+    private TableView suggestionWordTableView;
+
+    @FXML
+    private TableColumn suggestionWordCol;
 
 
-    public String getTextInSearch() {
-        return txtFieldSearch.getText();
-    }
+    // audio
+    private AudioLogic audioLogic = new AudioLogic();
 
-    private AudioLogic audioUK = new AudioLogic("UK.mp3");
-    private AudioLogic audioUS = new AudioLogic("US.mp3");
-    private AudioLogic audioTest = new AudioLogic("TestAudio.mp3");
+    // search
     private SearchLogic searchLogic = new SearchLogic();
 
-    private API api = new API();
+    //SuggestionWord
+    private SuggestionWordLogic suggestionWordLogic = new SuggestionWordLogic();
+
+    // TextTranslate
+    private APITextTranslate apiTextTranslate = new APITextTranslate();
+    @FXML
+    private JFXTextArea inputTextTranslation;
+
+    @FXML
+    private JFXTextArea displayTextTranslation;
 
 
+    // StartNow Action
+    @FXML
+    void startNowAction(ActionEvent event) {
+        introPane.setVisible(false);
+    }
 
     // Search
     @FXML
@@ -80,16 +113,12 @@ public class BusinessLogic {
             new Shake(btnSearch).play();
         } else {
             String res = searchLogic.getDetail(text);
-            if (res == null) {
+            if (res.length() == 0) {
                 textToDisplay.setText("No Result");
-                displayWord.setVisible(false);
+                displayWordSound.setVisible(false);
             } else {
-                displayWord.setVisible(true);
+                displayWordSound.setVisible(true);
                 textToDisplay.setText(res);
-
-                // Sound
-                api.textToSpeech(text, "US");
-                api.textToSpeech(text, "UK");
             }
         }
     }
@@ -97,9 +126,11 @@ public class BusinessLogic {
     // key event text
     @FXML
     void textKeyEvent(KeyEvent event) {
-        String text = txtFieldSearch.getText();
-
+        String text;
+        // Search when user enter
         if (event.getCode() == KeyCode.ENTER) {
+            text = txtFieldSearch.getText();
+
             if (text.length() == 0) {
                 new Shake(txtFieldSearch).play();
                 new Shake(btnSearch).play();
@@ -107,32 +138,34 @@ public class BusinessLogic {
                 String res = searchLogic.getDetail(text);
                 if (res.length() == 0) {
                     textToDisplay.setText("No Result");
-                    displayWord.setVisible(false);
+                    displayWordSound.setVisible(false);
                 } else {
-                    displayWord.setVisible(true);
+                    displayWordSound.setVisible(true);
                     textToDisplay.setText(res);
-
-                    // Sound
-                    api.textToSpeech(text, "US");
-                    api.textToSpeech(text, "UK");
                 }
             }
+        } else if (event.getText().length() != 0){
+            text = txtFieldSearch.getText() + event.getText();
+            System.out.println(text);
         }
-
-
     }
 
-
-    // Voice Button
+    // Text Translation Button
     @FXML
-    void btnVoiceAction(ActionEvent event) {
-
+    void textTranslationAction(ActionEvent event) {
+        if (!editPane.isVisible()) {
+            textTranslation.setVisible(true);
+        }
     }
-
-    // Daily Button
     @FXML
-    void dailyAction(ActionEvent event) {
-
+    void translateTextTranslation(ActionEvent event) {
+        String text = inputTextTranslation.getText();
+        displayTextTranslation.setText(apiTextTranslate.translate(text));
+    }
+    @FXML
+    void close(MouseEvent event) {
+        textTranslation.setVisible(false);
+        editPane.setVisible(false);
     }
 
     // Favorites Button
@@ -164,21 +197,36 @@ public class BusinessLogic {
 
     }
 
+    // Edit Button
+    @FXML
+    void btnEditAction(ActionEvent event) {
+        if (!textTranslation.isVisible()) {
+            editPane.setVisible(true);
+        }
+    }
+
     // Sound Button
     @FXML
     void clickBtnUK(MouseEvent event) {
-        audioUK.playAudio();
+        audioLogic.playAudio(txtFieldSearch.getText(), "UK");
     }
 
     @FXML
     void clickBtnUS(MouseEvent event) {
-        audioUS.playAudio();
+        audioLogic.playAudio(txtFieldSearch.getText(), "US");
     }
 
     // Star Button
     @FXML
-    void clickStar(MouseEvent event) {
+    void clickStarToMark(MouseEvent event) {
+        btnStarToMark.setVisible(false);
+        btnStarToUnMark.setVisible(true);
+    }
 
+    @FXML
+    void clickStarToUnMark(MouseEvent event) {
+        btnStarToUnMark.setVisible(false);
+        btnStarToMark.setVisible(true);
     }
 
 }

@@ -85,19 +85,6 @@
     </dependency>
 
     <dependency>
-      <groupId>com.gluonhq.attach</groupId>
-      <artifactId>util</artifactId>
-      <version>4.0.13</version>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/com.gluonhq/charm-glisten -->
-    <dependency>
-      <groupId>com.gluonhq</groupId>
-      <artifactId>charm-glisten</artifactId>
-      <version>6.2.3</version>
-    </dependency>
-
-    <dependency>
       <groupId>org.jsoup</groupId>
       <artifactId>jsoup</artifactId>
       <version>1.10.2</version>
@@ -117,14 +104,17 @@
       <version>22-ea+11</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.json/json -->
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20231013</version>
+    </dependency>
+
+
   </dependencies>
 
-  <repositories>
-    <repository>
-      <id>charm-glisten</id>
-      <url>https://nexus.gluonhq.com/nexus/content/repositories/releases/</url>
-    </repository>
-  </repositories>
+
 
   <build>
         <plugins>

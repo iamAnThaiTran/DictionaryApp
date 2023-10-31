@@ -9,11 +9,11 @@ module com.app.dictionaryapp {
     requires java.sql;
     requires de.jensd.fx.glyphs.fontawesome;
     requires com.jfoenix;
-    requires com.gluonhq.attach.util;
-    requires com.gluonhq.charm.glisten;
     requires AnimateFX;
     requires java.net.http;
     requires javafx.media;
+    requires java.desktop;
+    requires org.json;
 
     exports com.app.dictionaryapp.PresentationLayer;
     opens com.app.dictionaryapp.PresentationLayer to javafx.fxml;

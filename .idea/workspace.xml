@@ -4,46 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d5082d-b2f1-4f51-a982-13a95348dd5a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Database/edict.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/API.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/AudioLogic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/BusinessLogic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/ControllerGame1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/SearchLogic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/DataAccessLayer/Database.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/DataAccessLayer/Txt.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/PresentationLayer/Presentation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Audio/TestAudio.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Audio/UK.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Audio/US.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Game1.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Icon/Daily.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Icon/Edit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Icon/Favorites.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Icon/Games.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Icon/Recent.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Icon/Search.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Icon/Setting.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Icon/SettingBackground.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Icon/Speaker.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Icon/Voice.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Icon/favorite.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/index.fxml" afterDir="false" />
+    <list default="true" id="27d5082d-b2f1-4f51-a982-13a95348dd5a" name="Changes" comment="update">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/APITextToSpeech.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/APITextTranslate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/Data.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/Favorites.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/RecentDaily.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/SuggestionWordLogic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Icon/IntroBackground.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Icon/StartNow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Icon/TextTranslation.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Icon/close.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Icon/star.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/StyleBtn.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8d5a6835-afad-4542-ad23-22fdf4d7f6b4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8d5a6835-afad-4542-ad23-22fdf4d7f6b4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/API.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/AudioLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/AudioLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/BusinessLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/BusinessLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/SearchLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/SearchLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/DataAccessLayer/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/DataAccessLayer/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Audio/TestAudio.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Audio/UK.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Audio/US.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/index.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/index.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,29 +62,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/macbook/Desktop/Tài Liệu/OOP/ItellijProject/DictionaryApp/src/main/resources/com/app/dictionaryapp/PresentationLayer/Audio&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.10834235&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.40639699&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/macbook/Desktop/Tài Liệu/OOP/ItellijProject/DictionaryApp/src/main/resources/com/app/dictionaryapp/PresentationLayer/Audio",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.10834235",
+    "project.structure.side.proportion": "0.40639699",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.uml",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.app.dictionaryapp.PresentationLayer" />
@@ -105,16 +94,16 @@
       <recent name="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Audio" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Audio" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Icon" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Audio" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Database" />
-      <recent name="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/com.app.dictionaryapp.PresentationLayer" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Presentation">
-    <configuration name="API" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.app.dictionaryapp.BusinessLogicLayer.API" />
+    <configuration name="APITextToSpeech" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.app.dictionaryapp.BusinessLogicLayer.APITextToSpeech" />
       <module name="DictionaryApp" />
       <extension name="coverage">
         <pattern>
@@ -144,7 +133,7 @@
       <module name="DictionaryApp" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.app.dictionaryapp.DataAccessLayer.*" />
+          <option name="PATTERN" value="com.app.dictionaryapp.BusinessLogicLayer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -168,7 +157,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Presentation" />
-        <item itemvalue="Application.API" />
+        <item itemvalue="Application.APITextToSpeech" />
         <item itemvalue="Application.AudioLogic" />
         <item itemvalue="Application.Database" />
       </list>
@@ -212,11 +201,40 @@
       <workItem from="1698127750948" duration="16401000" />
       <workItem from="1698221919456" duration="131000" />
       <workItem from="1698222322314" duration="98000" />
+      <workItem from="1698222469632" duration="2381000" />
+      <workItem from="1698326580342" duration="5396000" />
+      <workItem from="1698381967791" duration="1241000" />
+      <workItem from="1698467772222" duration="24759000" />
+      <workItem from="1698572216407" duration="23658000" />
     </task>
+    <task id="LOCAL-00001" summary="update">
+      <option name="closed" value="true" />
+      <created>1698222523306</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1698222523306</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -232,21 +250,39 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/BusinessLogic.java</url>
-          <line>72</line>
+          <line>209</line>
+          <properties class="com.app.dictionaryapp.BusinessLogicLayer.BusinessLogic" method="clickBtnUK">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/BusinessLogic.java</url>
+          <line>105</line>
           <properties class="com.app.dictionaryapp.BusinessLogicLayer.BusinessLogic" method="btnSearchAction">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="9" />
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/PresentationLayer/Presentation.java</url>
-          <line>28</line>
-          <properties class="com.app.dictionaryapp.PresentationLayer.Presentation" method="main">
+          <url>file://$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/BusinessLogic.java</url>
+          <line>127</line>
+          <properties class="com.app.dictionaryapp.BusinessLogicLayer.BusinessLogic" method="textKeyEvent">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="11" />
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/BusinessLogic.java</url>
+          <line>160</line>
+          <properties class="com.app.dictionaryapp.BusinessLogicLayer.BusinessLogic" method="translateTextTranslation">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

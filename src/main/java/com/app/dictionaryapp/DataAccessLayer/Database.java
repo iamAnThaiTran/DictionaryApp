@@ -58,45 +58,26 @@ public class Database {
     }
 
     /**
-     * querySearch to get data from database
-     * @param text : condition.
-     * @param colName : collumn name(word, detail)
-     * @return String.
+     * query method.
+     * @param query: String.
+     * @return ResultSet
      */
-    public String querySearch(String text, String colName) {
+    public ResultSet query(String query) {
         // ket noi den database
         connectToDatabase();
 
-        String words = "";
-        String details = "";
         try {
             // tao statement de thuc thi query
             Statement statement = connection.createStatement();
 
-            // tao resultset de luu ket qua tu cau query
-            ResultSet resultSetDetail = statement.executeQuery("select detail from tbl_edict where word = '" + text + "'");
-            if (resultSetDetail.next()) {
-                details += resultSetDetail.getString("detail");
-            }
+            // tao ResuleSet
+            ResultSet resultSet = statement.executeQuery(query);
 
-            ResultSet resultSetWord = statement.executeQuery("select word from tbl_edict where word like '" + text + "%" + "'");
-            while (resultSetWord.next()) {
-                words += resultSetWord.getString("word");
-            }
+            return resultSet;
 
-            // giai phong resultSet
-            resultSetDetail.close();
-            resultSetWord.close();
         } catch (Exception e) {
             e.printStackTrace();
-        }
-
-        if (colName.equals("word")) {
-            return words;
-        } else if (colName.equals("detail")) {
-            return details;
-        } else {
-            return "";
+            return null;
         }
     }
 }

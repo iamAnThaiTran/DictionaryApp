@@ -1057,21 +1057,63 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     <user id="306" parent="1" name="root">
       <Host>localhost</Host>
     </user>
-    <table id="307" parent="289" name="tbl_edict">
+    <table id="307" parent="289" name="DictionaryEnglishVietNam">
       <Engine>MyISAM</Engine>
       <CollationName>utf8mb3_general_ci</CollationName>
     </table>
-    <column id="308" parent="307" name="idx">
+    <table id="308" parent="289" name="FavouritesTable">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="309" parent="289" name="RecentDailyTable">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <column id="310" parent="307" name="idx">
       <DasType>int|0s</DasType>
       <Position>1</Position>
     </column>
-    <column id="309" parent="307" name="word">
+    <column id="311" parent="307" name="word">
       <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="310" parent="307" name="detail">
+    <column id="312" parent="307" name="detail">
       <DasType>longtext|0s</DasType>
       <Position>3</Position>
     </column>
+    <column id="313" parent="308" name="word">
+      <DasType>varchar(200)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <index id="314" parent="308" name="PRIMARY">
+      <ColNames>word</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="315" parent="308" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="316" parent="309" name="word">
+      <DasType>varchar(200)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="317" parent="309" name="time">
+      <DasType>datetime|0s</DasType>
+      <Position>2</Position>
+    </column>
+    <index id="318" parent="309" name="PRIMARY">
+      <ColNames>word</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="319" parent="309" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
   </database-model>
 </dataSource>

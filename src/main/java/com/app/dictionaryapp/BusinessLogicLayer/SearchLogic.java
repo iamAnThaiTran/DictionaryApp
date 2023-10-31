@@ -6,14 +6,25 @@ import javax.xml.parsers.*;
 import org.w3c.dom.*;
 
 import java.io.ByteArrayInputStream;
+import java.sql.ResultSet;
 
 
 public class SearchLogic {
     private Database database = new Database("jdbc:mysql://localhost:3306/DictionaryDatabase", "root", "Khongco2004@");
 
     public String getDetail(String text) {
-        return database.querySearch(text, "detail");
+        ResultSet resultSet = database.query("select detail from DictionaryEnglishVietNam where word = '" + text + "'");
 
+        try {
+            if (resultSet.next()) {
+                return resultSet.getString("detail");
+            } else {
+                return "";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
+        }
 //        if (details != null) {
 //            try {
 //                DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
@@ -45,6 +56,6 @@ public class SearchLogic {
     }
 
     public String getWord(String text) {
-        return database.querySearch(text, "word");
+        return "";
     }
 }

@@ -13,11 +13,11 @@ public class SearchLogic {
     private Database database = new Database("jdbc:mysql://localhost:3306/DictionaryDatabase", "root", "Khongco2004@");
 
     public String getDetail(String text) {
-        ResultSet resultSet = database.query("select detail from DictionaryEnglishVietNam where word = '" + text + "'");
+        ResultSet resultSet = database.query("select description from av where word = '" + text + "'");
 
         try {
             if (resultSet.next()) {
-                return resultSet.getString("detail");
+                return resultSet.getString("description");
             } else {
                 return "";
             }
@@ -55,7 +55,17 @@ public class SearchLogic {
 //        }
     }
 
-    public String getWord(String text) {
-        return "";
+    public String getPronounciation(String text) {
+        ResultSet resultSet = database.query("select pronounce from av where word = '" + text + "'");
+        try {
+            if (resultSet.next()) {
+                return resultSet.getString("pronounce");
+            } else {
+                return "";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
+        }
     }
 }

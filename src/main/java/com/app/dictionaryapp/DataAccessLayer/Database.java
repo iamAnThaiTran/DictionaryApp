@@ -80,4 +80,16 @@ public class Database {
             return null;
         }
     }
+
+    public void queryDDL(String query) {
+        connectToDatabase();
+
+        try {
+            Statement statement = connection.createStatement();
+            statement.execute(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

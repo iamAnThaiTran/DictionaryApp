@@ -3,12 +3,23 @@
 
 }
 
-#displayWord {
+#displayWordSound {
 
 }
 
+#mainPane {
+
+}
 #introPane {
     -fx-background-image: url("Icon/IntroBackground.jpg");
+}
+
+#textTranslation {
+    -fx-background-color: linear-gradient(to bottom left, #231557 0%, #44107A 29%, #FF1361 67%, #FFF800 100%);
+}
+
+#editPane {
+    -fx-background-color: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
 }
 
 .btn {
@@ -66,4 +77,23 @@
     -fx-background-color: white;
     -fx-background-insets: 0;
     -fx-background-radius: 0;
+}
+
+.textAreaInTextTranslation {
+    -fx-background-color: rgba(53,89,119,0.4);
+    -fx-text-fill: #fde0e0;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 5.0, 5.0);
+}
+
+.textAreaInTextTranslation.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.textAreaInTextTranslation .scroll-pane .viewport{
+    -fx-background-color: transparent;
+}
+
+
+.textAreaInTextTranslation .scroll-pane .content{
+    -fx-background-color: transparent;
 }

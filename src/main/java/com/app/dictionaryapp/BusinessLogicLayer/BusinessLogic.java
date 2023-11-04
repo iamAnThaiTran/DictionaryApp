@@ -3,6 +3,7 @@ package com.app.dictionaryapp.BusinessLogicLayer;
 import animatefx.animation.*;
 import com.app.dictionaryapp.DataAccessLayer.Database;
 import com.jfoenix.controls.JFXTextArea;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,6 +17,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 public class BusinessLogic {
 
@@ -60,7 +62,17 @@ public class BusinessLogic {
     @FXML
     private TextField txtFieldSearch;
     @FXML
+    private TextField wordEdit;
+
+    @FXML
     private JFXTextArea textToDisplay;
+    @FXML
+    private TextArea inputTextTranslation;
+    @FXML
+    private TextArea descriptionEdit;
+
+    @FXML
+    private TextArea outputTextTranslation;
 
     // image
     @FXML
@@ -71,28 +83,36 @@ public class BusinessLogic {
     private ImageView btnStarToUnMark;
 
     @FXML
-    private TableView suggestionWordTableView;
+    private TableView<String> suggestionWordTableView;
 
     @FXML
-    private TableColumn suggestionWordCol;
+    private TableColumn<String, String> suggestionWordCol;
 
+    //label
+    @FXML
+    private Label word;
+    @FXML
+    private Label pronunciation;
 
-    // audio
+    // recent logic
+    private RecentLogic recentLogic = new RecentLogic();
+
+    // audio logic
     private AudioLogic audioLogic = new AudioLogic();
 
-    // search
+    // search logic
     private SearchLogic searchLogic = new SearchLogic();
+
+    // edit logic
+    private EditLogic editLogic = new EditLogic();
 
     //SuggestionWord
     private SuggestionWordLogic suggestionWordLogic = new SuggestionWordLogic();
 
     // TextTranslate
     private APITextTranslate apiTextTranslate = new APITextTranslate();
-    @FXML
-    private JFXTextArea inputTextTranslation;
 
-    @FXML
-    private JFXTextArea displayTextTranslation;
+
 
 
     // StartNow Action
@@ -117,8 +137,17 @@ public class BusinessLogic {
                 textToDisplay.setText("No Result");
                 displayWordSound.setVisible(false);
             } else {
+                // display word and pronounce
+                word.setText(text);
+                pronunciation.setText(searchLogic.getPronounciation(text));
                 displayWordSound.setVisible(true);
+
+                // display description
                 textToDisplay.setText(res);
+                textToDisplay.setVisible(true);
+
+                // add word to recent.txt
+                recentLogic.addRecentWord(text);
             }
         }
     }
@@ -128,6 +157,12 @@ public class BusinessLogic {
     void textKeyEvent(KeyEvent event) {
         String text;
         // Search when user enter
+        if (editPane.isVisible() || textTranslation.isVisible()) {
+            txtFieldSearch.setEditable(false);
+        } else {
+            txtFieldSearch.setEditable(true);
+        }
+
         if (event.getCode() == KeyCode.ENTER) {
             text = txtFieldSearch.getText();
 
@@ -140,14 +175,42 @@ public class BusinessLogic {
                     textToDisplay.setText("No Result");
                     displayWordSound.setVisible(false);
                 } else {
+                    // display word and pronounce
+                    word.setText(text);
+                    pronunciation.setText(searchLogic.getPronounciation(text));
                     displayWordSound.setVisible(true);
+
+                    // display description
                     textToDisplay.setText(res);
+                    textToDisplay.setVisible(true);
+
+                    // add word to recent.txt
+                    recentLogic.addRecentWord(text);
                 }
             }
-        } else if (event.getText().length() != 0){
+        } else if (event.getText().length() != 0) {
+            suggestionWordTableView.getItems().clear();
+            System.out.println(event.getText());
+            suggestionWordTableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY); // remove horizontal
             text = txtFieldSearch.getText() + event.getText();
+            ObservableList<String> observableList = FXCollections.observableArrayList();
+            observableList = suggestionWordLogic.getObservableList(text);
+            suggestionWordTableView.setItems(observableList);
+            suggestionWordCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()));
             System.out.println(text);
         }
+    }
+
+    @FXML
+    void clickSuggestionWordTable(MouseEvent event) {
+        String text = suggestionWordTableView.getSelectionModel().getSelectedItem();
+        txtFieldSearch.setText(text);
+    }
+
+    @FXML
+    void keyTyped(KeyEvent event) {
+//        ObservableList<String> observableList = suggestionWordLogic.getObservableList(txtFieldSearch.getText());
+//        suggestionWordListView.setItems(observableList);
     }
 
     // Text Translation Button
@@ -160,7 +223,7 @@ public class BusinessLogic {
     @FXML
     void translateTextTranslation(ActionEvent event) {
         String text = inputTextTranslation.getText();
-        displayTextTranslation.setText(apiTextTranslate.translate(text));
+        outputTextTranslation.setText(apiTextTranslate.translate(text));
     }
     @FXML
     void close(MouseEvent event) {
@@ -180,7 +243,7 @@ public class BusinessLogic {
 
     }
 
-    // Recent Button
+    // Recent.txt Button
     @FXML
     void recentAction(ActionEvent event) {
 
@@ -205,15 +268,36 @@ public class BusinessLogic {
         }
     }
 
+    @FXML
+    void addBtnEdit(ActionEvent event) {
+        if (wordEdit.getText().length() == 0 ||
+        descriptionEdit.getText().length() == 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+
+        } else {
+            editLogic.insert(wordEdit.getText(), descriptionEdit.getText());
+        }
+    }
+
+    @FXML
+    void updateBtnEdit(ActionEvent event) {
+
+    }
+
+    @FXML
+    void deleteBtnEdit(ActionEvent event) {
+
+    }
+
     // Sound Button
     @FXML
     void clickBtnUK(MouseEvent event) {
-        audioLogic.playAudio(txtFieldSearch.getText(), "UK");
+        audioLogic.playAudio(word.getText(), "UK");
     }
 
     @FXML
     void clickBtnUS(MouseEvent event) {
-        audioLogic.playAudio(txtFieldSearch.getText(), "US");
+        audioLogic.playAudio(word.getText(), "US");
     }
 
     // Star Button

@@ -23,8 +23,13 @@
       <URL value="@StyleBtn.css" />
   </stylesheets>
   <children>
+      <TableView fx:id="suggestionWordTableView" layoutY="121.0" onMouseClicked="#clickSuggestionWordTable" prefHeight="535.0" prefWidth="221.0">
+        <columns>
+          <TableColumn fx:id="suggestionWordCol" prefWidth="237.0" text="Suggestion Word" />
+        </columns>
+      </TableView>
       <JFXTextArea fx:id="textToDisplay" editable="false" layoutX="346.0" layoutY="311.0" prefHeight="492.0" prefWidth="751.0" visible="false" />
-    <AnchorPane fx:id="topApp" prefHeight="73.0" prefWidth="1101.0">
+    <AnchorPane fx:id="topApp" layoutX="1.0" prefHeight="73.0" prefWidth="1101.0">
       <children>
         <Button id="btnRecent" fx:id="btnRecent" contentDisplay="TOP" mnemonicParsing="false" onAction="#recentAction" prefHeight="72.0" prefWidth="85.0" styleClass="btn" text="Recent">
           <textFill>
@@ -90,8 +95,8 @@
                   </ImageView>
                </graphic>
         </Button>
-        <TextField id="txtFieldSearch" fx:id="txtFieldSearch" layoutX="499.0" layoutY="16.0" onKeyPressed="#textKeyEvent" onKeyTyped="#keyTyped" prefHeight="37.0" prefWidth="450.0" promptText="Search" style="-fx-font-size: 15;" />
-        <Button id="btnSearch" fx:id="btnSearch" layoutX="973.0" layoutY="17.0" mnemonicParsing="false" onAction="#btnSearchAction" prefHeight="37.0" prefWidth="55.0" styleClass="btnSearchVoice">
+        <TextField id="txtFieldSearch" fx:id="txtFieldSearch" layoutX="499.0" layoutY="16.0" onKeyPressed="#textKeyEvent" onKeyTyped="#keyTyped" prefHeight="37.0" prefWidth="505.0" promptText="Search" style="-fx-font-size: 15;" />
+        <Button id="btnSearch" fx:id="btnSearch" layoutX="947.0" layoutY="16.0" mnemonicParsing="false" onAction="#btnSearchAction" prefHeight="37.0" prefWidth="57.0" styleClass="btnSearchVoice">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -104,7 +109,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <ImageView fx:id="btnSetting" fitHeight="30.0" fitWidth="30.0" layoutX="1049.0" layoutY="20.0" onMouseClicked="#clickSettingBtn" onMouseMoved="#moveSettingBtn" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="btnSetting" fitHeight="30.0" fitWidth="30.0" layoutX="1049.0" layoutY="20.0" onMouseClicked="#clickSettingBtn" onMouseMoved="#moveSettingBtn" pickOnBounds="true" preserveRatio="true" styleClass="imageViewScale">
                <image>
                   <Image url="@Icon/Setting.png" />
                </image>
@@ -118,29 +123,29 @@
     </AnchorPane>
       <AnchorPane fx:id="displayWordSound" layoutX="421.0" layoutY="96.0" opacity="0.8" prefHeight="156.0" prefWidth="602.0" visible="false">
          <children>
-            <ImageView fx:id="btnUS" fitHeight="36.0" fitWidth="36.0" layoutX="47.0" layoutY="121.0" onMouseClicked="#clickBtnUS" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="btnUS" fitHeight="36.0" fitWidth="36.0" layoutX="47.0" layoutY="121.0" onMouseClicked="#clickBtnUS" pickOnBounds="true" preserveRatio="true" styleClass="imageViewScale">
                <image>
                   <Image url="@Icon/Speaker.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="btnUK" fitHeight="37.0" fitWidth="36.0" layoutX="148.0" layoutY="121.0" onMouseClicked="#clickBtnUK" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="btnUK" fitHeight="37.0" fitWidth="36.0" layoutX="148.0" layoutY="121.0" onMouseClicked="#clickBtnUK" pickOnBounds="true" preserveRatio="true" styleClass="imageViewScale">
                <image>
                   <Image url="@Icon/Speaker.png" />
                </image>
             </ImageView>
             <AnchorPane layoutX="534.0" prefHeight="157.0" prefWidth="68.0" style="-fx-border-width: 0 0 0 1; -fx-border-color: #011C60;">
                <children>
-                  <ImageView fx:id="btnStarToMark" fitHeight="48.0" fitWidth="30.0" layoutX="19.0" layoutY="14.0" onMouseClicked="#clickStarToMark" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="btnStarToMark" fitHeight="48.0" fitWidth="30.0" layoutX="19.0" layoutY="14.0" onMouseClicked="#clickStarToMark" pickOnBounds="true" preserveRatio="true" styleClass="imageViewScale">
                      <image>
                         <Image url="@Icon/favorite.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="48.0" fitWidth="30.0" layoutX="19.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="48.0" fitWidth="30.0" layoutX="19.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true" styleClass="imageViewScale">
                      <image>
                         <Image url="@Icon" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="btnStarToUnMark" fitHeight="30.0" fitWidth="30.0" layoutX="19.0" layoutY="14.0" onMouseClicked="#clickStarToUnMark" pickOnBounds="true" preserveRatio="true" visible="false">
+                  <ImageView fx:id="btnStarToUnMark" fitHeight="30.0" fitWidth="30.0" layoutX="19.0" layoutY="14.0" onMouseClicked="#clickStarToUnMark" pickOnBounds="true" preserveRatio="true" styleClass="imageViewScale" visible="false">
                      <image>
                         <Image url="@Icon/star.png" />
                      </image>
@@ -149,7 +154,7 @@
             </AnchorPane>
             <Label layoutX="90.0" layoutY="129.0" prefHeight="25.0" prefWidth="25.0" text="US" />
             <Label layoutX="195.0" layoutY="126.0" prefHeight="26.0" prefWidth="25.0" text="UK" />
-            <Label fx:id="word" alignment="TOP_LEFT" disable="true" layoutX="47.0" prefHeight="50.0" prefWidth="228.0">
+            <Label fx:id="word" alignment="TOP_LEFT" disable="true" layoutX="47.0" prefHeight="63.0" prefWidth="371.0">
                <font>
                   <Font size="50.0" />
                </font>
@@ -169,7 +174,7 @@
                </font>
             </Label>
             <Button layoutX="412.0" layoutY="288.0" mnemonicParsing="false" onAction="#translateTextTranslation" stylesheets="@StyleBtn.css" text="Translate" />
-            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="907.0" layoutY="1.0" onMouseClicked="#close" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="907.0" layoutY="1.0" onMouseClicked="#close" pickOnBounds="true" preserveRatio="true" styleClass="imageViewScale">
                <image>
                   <Image url="@Icon/close.png" />
                </image>
@@ -184,14 +189,14 @@
                   <Font size="19.0" />
                </font>
             </TextArea>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="503.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="503.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true" styleClass="imageViewScale">
                <image>
                   <Image url="@Icon/Speaker.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="editPane" layoutX="167.0" layoutY="94.0" prefHeight="628.0" prefWidth="878.0" visible="false">
+      <AnchorPane fx:id="editPane" layoutX="113.0" layoutY="88.0" prefHeight="628.0" prefWidth="878.0" visible="false">
          <children>
             <Label alignment="CENTER" layoutX="215.0" layoutY="14.0" prefHeight="106.0" prefWidth="338.0" text="Edit Dictionary">
                <font>
@@ -213,7 +218,7 @@
             <Button id="glass" layoutX="85.0" layoutY="409.0" mnemonicParsing="false" onAction="#addBtnEdit" prefHeight="37.0" prefWidth="140.0" stylesheets="@StyleBtn.css" text="Add" />
             <Button id="glass" layoutX="314.0" layoutY="410.0" mnemonicParsing="false" onAction="#updateBtnEdit" prefHeight="37.0" prefWidth="140.0" stylesheets="@StyleBtn.css" text="Update" />
             <Button id="glass" layoutX="553.0" layoutY="410.0" mnemonicParsing="false" onAction="#deleteBtnEdit" prefHeight="37.0" prefWidth="140.0" stylesheets="@StyleBtn.css" text="Delete" />
-            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="842.0" layoutY="8.0" onMouseClicked="#close" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="842.0" layoutY="8.0" onMouseClicked="#close" pickOnBounds="true" preserveRatio="true" styleClass="imageViewScale">
                <image>
                   <Image url="@Icon/close.png" />
                </image>
@@ -243,10 +248,5 @@
             </Label>
          </children>
       </AnchorPane>
-      <TableView fx:id="suggestionWordTableView" layoutY="121.0" onMouseClicked="#clickSuggestionWordTable" prefHeight="535.0" prefWidth="221.0">
-        <columns>
-          <TableColumn fx:id="suggestionWordCol" prefWidth="237.0" text="Suggestion Word" />
-        </columns>
-      </TableView>
   </children>
 </AnchorPane>

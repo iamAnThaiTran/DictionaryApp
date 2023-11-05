@@ -8,13 +8,15 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Presentation extends Application {
+    private FXMLLoader fxmlLoader;
+    private Scene scene;
     @Override
     public void start(Stage stage) throws IOException {
         // load file index.fxml
-        FXMLLoader fxmlLoader = new FXMLLoader(Presentation.class.getResource("index.fxml"));
+        fxmlLoader = new FXMLLoader(Presentation.class.getResource("index.fxml"));
 
         // init scene from fxml file
-        Scene scene = new Scene(fxmlLoader.load());
+        scene = new Scene(fxmlLoader.load());
 
         // set title
         stage.setTitle("DictionaryApp");

@@ -12,7 +12,7 @@ public class SuggestionWordLogic {
 
     public ObservableList<String> getObservableList(String text) {
         database.connectToDatabase();
-        ResultSet resultSet = database.query("select word from av where word like '" + text + "%'");
+        ResultSet resultSet = database.queryGetData("select word from av where word like '" + text + "%'");
         Data data = new Data();
         try {
             while (resultSet.next()) {

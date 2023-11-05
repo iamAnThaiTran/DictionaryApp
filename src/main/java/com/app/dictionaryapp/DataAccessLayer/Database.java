@@ -62,7 +62,7 @@ public class Database {
      * @param query: String.
      * @return ResultSet
      */
-    public ResultSet query(String query) {
+    public ResultSet queryGetData(String query) {
         // ket noi den database
         connectToDatabase();
 
@@ -81,7 +81,7 @@ public class Database {
         }
     }
 
-    public void queryDDL(String query) {
+    public void queryUpdate(String query) {
         connectToDatabase();
 
         try {

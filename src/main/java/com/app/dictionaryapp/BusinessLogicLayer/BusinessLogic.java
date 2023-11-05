@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.InputMethodEvent;
@@ -112,7 +113,17 @@ public class BusinessLogic {
     // TextTranslate
     private APITextTranslate apiTextTranslate = new APITextTranslate();
 
+    // Enum
+    private enum MODE {
+        RECENT,
+        GAMES,
+        TEXTTRANSLATION,
+        FAVOURITES,
+        EDIT
+    }
 
+    // mode
+    private MODE mode;
 
 
     // StartNow Action
@@ -189,15 +200,29 @@ public class BusinessLogic {
                 }
             }
         } else if (event.getText().length() != 0) {
+            // set visible
+            suggestionWordTableView.setVisible(true);
+
+            // change tablecol name
+            suggestionWordCol.setText("Suggestion Word");
+
+            // clear table view
             suggestionWordTableView.getItems().clear();
-            System.out.println(event.getText());
-            suggestionWordTableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY); // remove horizontal
+
+            // remove horizontal scroll
+            suggestionWordTableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+
+            // get text
             text = txtFieldSearch.getText() + event.getText();
+
+            // get observable list
             ObservableList<String> observableList = FXCollections.observableArrayList();
             observableList = suggestionWordLogic.getObservableList(text);
+
+            // set item for tableview
             suggestionWordTableView.setItems(observableList);
             suggestionWordCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()));
-            System.out.println(text);
+
         }
     }
 
@@ -216,9 +241,16 @@ public class BusinessLogic {
     // Text Translation Button
     @FXML
     void textTranslationAction(ActionEvent event) {
-        if (!editPane.isVisible()) {
-            textTranslation.setVisible(true);
-        }
+        textTranslation.setVisible(true);
+
+        // set edit txtFieldSearch
+        txtFieldSearch.setEditable(false);
+
+        // set disible
+        editPane.setVisible(false);
+        suggestionWordTableView.setVisible(false);
+        displayWordSound.setVisible(false);
+        textToDisplay.setVisible(false);
     }
     @FXML
     void translateTextTranslation(ActionEvent event) {
@@ -227,6 +259,9 @@ public class BusinessLogic {
     }
     @FXML
     void close(MouseEvent event) {
+        txtFieldSearch.setEditable(true);
+
+        // set visible textTranslation, editPane
         textTranslation.setVisible(false);
         editPane.setVisible(false);
     }
@@ -234,7 +269,14 @@ public class BusinessLogic {
     // Favorites Button
     @FXML
     void favoritesAction(ActionEvent event) {
+        suggestionWordTableView.setVisible(true);
+        suggestionWordCol.setText("Favourite Word");
 
+        // set visible
+        displayWordSound.setVisible(false);
+        textToDisplay.setVisible(false);
+        textTranslation.setVisible(false);
+        editPane.setVisible(false);
     }
 
     // Games Button
@@ -246,7 +288,14 @@ public class BusinessLogic {
     // Recent.txt Button
     @FXML
     void recentAction(ActionEvent event) {
+        suggestionWordTableView.setVisible(true);
+        suggestionWordCol.setText("Recent Word");
 
+        // set visible
+        displayWordSound.setVisible(false);
+        textToDisplay.setVisible(false);
+        textTranslation.setVisible(false);
+        editPane.setVisible(false);
     }
 
     // Setting Button
@@ -263,9 +312,16 @@ public class BusinessLogic {
     // Edit Button
     @FXML
     void btnEditAction(ActionEvent event) {
-        if (!textTranslation.isVisible()) {
-            editPane.setVisible(true);
-        }
+        editPane.setVisible(true);
+
+        // set edit txtFieldSearch
+        txtFieldSearch.setEditable(false);
+
+        // set disible
+        textTranslation.setVisible(false);
+        suggestionWordTableView.setVisible(false);
+        displayWordSound.setVisible(false);
+        textToDisplay.setVisible(false);
     }
 
     @FXML
@@ -273,7 +329,10 @@ public class BusinessLogic {
         if (wordEdit.getText().length() == 0 ||
         descriptionEdit.getText().length() == 0) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error add new word");
+            alert.setContentText("Word and description is required");
 
+            alert.showAndWait();
         } else {
             editLogic.insert(wordEdit.getText(), descriptionEdit.getText());
         }
@@ -281,12 +340,29 @@ public class BusinessLogic {
 
     @FXML
     void updateBtnEdit(ActionEvent event) {
+        if (wordEdit.getText().length() == 0 ||
+            descriptionEdit.getText().length() == 0) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error update new word");
+            alert.setContentText("Word and description is required");
 
+            alert.showAndWait();
+        } else {
+
+        }
     }
 
     @FXML
     void deleteBtnEdit(ActionEvent event) {
+        if (wordEdit.getText().length() == 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error delete word");
+            alert.setContentText("Word is required");
 
+            alert.showAndWait();
+        } else {
+
+        }
     }
 
     // Sound Button

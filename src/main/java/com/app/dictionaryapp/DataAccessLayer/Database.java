@@ -81,14 +81,16 @@ public class Database {
         }
     }
 
-    public void queryUpdate(String query) {
+    public boolean queryUpdate(String query) {
         connectToDatabase();
 
         try {
             Statement statement = connection.createStatement();
             statement.execute(query);
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
     }
 

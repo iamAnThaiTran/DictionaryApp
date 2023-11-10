@@ -1,6 +1,7 @@
 package com.app.dictionaryapp.BusinessLogicLayer;
 
 import com.app.dictionaryapp.DataAccessLayer.Txt;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class RecentLogic {
@@ -17,4 +18,9 @@ public class RecentLogic {
         txt.write(text);
     }
 
+    public ObservableList<String> getContentRecent() {
+        ObservableList<String> observableList = txt.getContentInFile();
+        FXCollections.reverse(observableList);
+        return observableList;
+    }
 }

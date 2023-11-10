@@ -1,12 +1,21 @@
 package com.app.dictionaryapp.PresentationLayer;
 
+import java.io.File;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
+import animatefx.animation.*;
 
 import java.io.IOException;
-
+import javafx.util.Duration;
 public class Presentation extends Application {
     private FXMLLoader fxmlLoader;
     private Scene scene;
@@ -26,6 +35,35 @@ public class Presentation extends Application {
 
         // show
         stage.show();
+
+        // ImageView to intro
+//        ImageView imageViewIntro = (ImageView) fxmlLoader.getNamespace().get("imageViewIntro");
+
+        AnchorPane introPane = (AnchorPane) fxmlLoader.getNamespace().get("introPane");
+
+        ImageView imageView = (ImageView) fxmlLoader.getNamespace().get("logoIntro");
+        Bounce bounce = new Bounce(imageView);
+        bounce.setCycleCount(1);
+        bounce.play();
+
+        MediaView mediaView = (MediaView) fxmlLoader.getNamespace().get("mediaIntro");
+        Media media = new Media(new File("src/main/resources/com/app/dictionaryapp/PresentationLayer/Audio/MediaIntro.mp4").toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaView.setMediaPlayer(mediaPlayer);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.setAutoPlay(true);
+
+        Media mediaAudio = new Media(new File("src/main/resources/com/app/dictionaryapp/PresentationLayer/Audio/Intro.mp3").toURI().toString());
+        MediaPlayer mediaPlayerAudio = new MediaPlayer(mediaAudio);
+        mediaPlayerAudio.play();
+
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), actionEvent -> {
+            introPane.setVisible(false);
+            mediaPlayer.pause();
+            mediaPlayerAudio.pause();
+        }));
+
+        timeline.play();
     }
 
     public static void main(String[] args) {

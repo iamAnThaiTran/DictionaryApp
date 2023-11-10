@@ -1,16 +1,15 @@
 package com.app.dictionaryapp.BusinessLogicLayer;
+import com.app.dictionaryapp.DataAccessLayer.Cache;
 import com.app.dictionaryapp.DataAccessLayer.Database;
-import com.app.dictionaryapp.DataAccessLayer.Txt;
-import javax.xml.parsers.*;
-
-import org.w3c.dom.*;
-
-import java.io.ByteArrayInputStream;
 import java.sql.ResultSet;
+import org.jsoup.Jsoup;
+import org.jsoup.select.Elements;
+import org.jsoup.nodes.Document;
 
 
 public class SearchLogic {
-    private Database database = new Database("jdbc:mysql://localhost:3306/DictionaryDatabase", "root", "Khongco2004@");
+    private final Database database = new Database("jdbc:mysql://localhost:3306/DictionaryDatabase", "root", "Khongco2004@");
+    private final Cache cache = new Cache();
 
     public String getDetail(String text) {
         ResultSet resultSet = database.queryGetData("select description from av where word = '" + text + "'");
@@ -25,36 +24,32 @@ public class SearchLogic {
             e.printStackTrace();
             return "";
         }
-//        if (details != null) {
-//            try {
-//                DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-//                DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-//                DocumentBuilder builder = factory.newDocumentBuilder();
-//                Document doc = builder.parse(new ByteArrayInputStream(details.getBytes("UTF-8")));
-//
-//                // root element
-//                Element root = doc.getDocumentElement();
-//
-//                // file and access Q tag
-//                NodeList qElements = root.getElementsByTagName("Q");
-//                Element qElement = (Element) qElements.item(0);
-//                String qContent = qElement.getTextContent();
-//                String[] lines = qContent.split("\n");
-//
-//                StringBuilder stringBuilder = new StringBuilder();
-//                for (String line : lines) {
-//                    stringBuilder.append(line).append("\n");
-//                }
-//                return stringBuilder.toString();
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//                return null;
-//            }
-//        } else {
-//            return null;
-//        }
     }
 
+    public String getHtml(String text) {
+        ResultSet resultSet1 = database.queryGetData("select html from av where word = '" + text + "'");
+        ResultSet resultSet2 = database.queryGetData("select description from YourDictionary where word='" + text + "'");
+
+        try {
+            if (resultSet1.next()) {
+                Document document = Jsoup.parse(resultSet1.getString("html"));
+
+                Elements h1 = document.select("h1");
+                Elements h3 = document.select("h3");
+
+                h1.remove();
+                h3.remove();
+
+
+                return document.toString();
+            } else {
+                return resultSet2.getString("description");
+            }
+        } catch (Exception e) {
+            return "";
+        }
+
+    }
     public String getPronounciation(String text) {
         ResultSet resultSet = database.queryGetData("select pronounce from av where word = '" + text + "'");
         try {

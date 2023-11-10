@@ -14,9 +14,14 @@ module com.app.dictionaryapp {
     requires javafx.media;
     requires java.desktop;
     requires org.json;
+    requires redis.clients.jedis;
+    requires javafx.web;
+    requires org.jsoup;
 
     exports com.app.dictionaryapp.PresentationLayer;
     opens com.app.dictionaryapp.PresentationLayer to javafx.fxml;
     exports com.app.dictionaryapp.BusinessLogicLayer;
     opens com.app.dictionaryapp.BusinessLogicLayer to javafx.fxml;
+  exports com.app.dictionaryapp.DataAccessLayer;
+  opens com.app.dictionaryapp.DataAccessLayer to javafx.fxml;
 }

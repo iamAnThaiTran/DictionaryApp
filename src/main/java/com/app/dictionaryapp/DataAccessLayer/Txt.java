@@ -1,5 +1,7 @@
 package com.app.dictionaryapp.DataAccessLayer;
 
+import java.io.PrintWriter;
+import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -9,8 +11,7 @@ import java.util.Scanner;
 
 public class Txt {
     private String pathFile; // luu path file
-    private FileWriter fileWriter; // ghi vao file
-    private File file; // lay noi dung cua file
+    private File file; // mo file
 
     public Txt(String pathFile) {
         this.pathFile = pathFile;
@@ -19,14 +20,13 @@ public class Txt {
     public void connect() {
         try {
             file = new File(pathFile);
-            fileWriter = new FileWriter(file, true);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public void write(String text) {
-        try {
+        try(FileWriter fileWriter = new FileWriter(file, true)) {
             fileWriter.write(text + "\n");
         } catch (Exception e) {
             e.printStackTrace();
@@ -34,30 +34,46 @@ public class Txt {
     }
 
     public void deleleTextInFile(String text) {
+        connect();
+
         ObservableList<String> observableList = getContentInFile();
 
-        for(String line: observableList) {
-            if (!line.equals(text)) {
-                try {
-                    fileWriter.write(line + "\n");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        observableList.remove(text);
+
+        deleteAll();
+
+        try (FileWriter fileWriter = new FileWriter(file, true)) {
+            for (String line : observableList) {
+                fileWriter.write(line + "\n");
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     public ObservableList<String> getContentInFile() {
-        ObservableList<String> observableList = FXCollections.observableArrayList();
-        try {
-            Scanner scanner = new Scanner(file);
-            while (scanner.hasNextLine() && !scanner.nextLine().equals("")) {
-                observableList.add(scanner.nextLine());
+        connect();
+
+        ObservableList<String> contentList = FXCollections.observableArrayList();
+
+
+        try (Scanner scanner = new Scanner(file)) {
+            while (scanner.hasNextLine()) {
+                contentList.add(scanner.nextLine());
             }
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            return observableList;
+        }
+        return contentList;
+    }
+
+    void deleteAll() {
+        try {
+            PrintWriter pw = new PrintWriter(file);
+            pw.close();
+            return;
+        } catch (Exception e) {
+            return;
         }
     }
 }

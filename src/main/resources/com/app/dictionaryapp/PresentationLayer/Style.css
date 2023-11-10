@@ -4,14 +4,16 @@
 }
 
 #displayWordSound {
-    -fx-background-color: linear-gradient(to right, #2bc0e4, #eaecc6);
+    -fx-background-color: #05193a;
+    -fx-border-color: #307AA7FF;
 }
 
 #mainPane {
     -fx-background-color: linear-gradient(to right bottom, #051937, #001d2f, #001d1f, #001a11, #111607);
 }
 #introPane {
-    -fx-background-image: url("Icon/IntroBackground.jpg");
+    /*-fx-background-image: url("Icon/IntroBackground.jpg");*/
+    -fx-background-color: #000000;
 }
 
 #textTranslation {
@@ -19,7 +21,7 @@
 }
 
 #editPane {
-    -fx-background-color: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+    -fx-background-color: linear-gradient(to right, #126fe9, #c471ed, #f64f59);
 }
 
 .btn {
@@ -64,8 +66,6 @@
 }
 
 .text-area {
-    -fx-background-color: white;
-
     /* Shadow effect */
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 5.0, 5.0);
 }

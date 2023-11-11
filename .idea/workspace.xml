@@ -5,33 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27d5082d-b2f1-4f51-a982-13a95348dd5a" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/Trie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/DataAccessLayer/Cache.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Audio/AudioIntro.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Audio/Intro.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Audio/MediaIntro.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Icon/Download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Icon/DownloadClick.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Icon/Logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Icon/Star.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/StyleWebView.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8d5a6835-afad-4542-ad23-22fdf4d7f6b4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8d5a6835-afad-4542-ad23-22fdf4d7f6b4.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/BusinessLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/BusinessLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/EditLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/EditLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/FavoritesLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/FavoritesLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/RecentLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/RecentLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/SearchLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/SearchLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/DataAccessLayer/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/DataAccessLayer/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/DataAccessLayer/Txt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/DataAccessLayer/Txt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/DataAccessLayer/Cache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/DataAccessLayer/Cache.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/PresentationLayer/Presentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/PresentationLayer/Presentation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Icon/StartNow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Icon/favorite.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Icon/star.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Icon/StarFull.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/StyleBtn.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/StyleBtn.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Txt/Favorites.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Txt/Favorites.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Txt/Recent.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Txt/Recent.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/index.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/index.fxml" afterDir="false" />
@@ -107,7 +85,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Presentation">
+  <component name="RunManager" selected="Application.SearchLogic">
     <configuration name="APITextToSpeech" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.app.dictionaryapp.BusinessLogicLayer.APITextToSpeech" />
       <module name="DictionaryApp" />
@@ -175,10 +153,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Presentation" />
-        <item itemvalue="Application.BusinessLogic" />
         <item itemvalue="Application.SearchLogic" />
+        <item itemvalue="Application.Presentation" />
         <item itemvalue="Application.Cache" />
+        <item itemvalue="Application.BusinessLogic" />
         <item itemvalue="Application.APITextToSpeech" />
       </list>
     </recent_temporary>
@@ -248,6 +226,7 @@
       <workItem from="1699502143150" duration="641000" />
       <workItem from="1699503628659" duration="31775000" />
       <workItem from="1699622457000" duration="11541000" />
+      <workItem from="1699669631711" duration="9430000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -325,6 +304,15 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/BusinessLogic.java</url>
+          <line>149</line>
+          <properties class="com.app.dictionaryapp.BusinessLogicLayer.BusinessLogic" method="btnSearchAction">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/SearchLogic.java</url>

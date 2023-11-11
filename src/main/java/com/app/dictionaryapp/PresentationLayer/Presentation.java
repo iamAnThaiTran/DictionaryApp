@@ -1,5 +1,7 @@
 package com.app.dictionaryapp.PresentationLayer;
 
+import com.app.dictionaryapp.BusinessLogicLayer.BusinessLogic;
+import com.app.dictionaryapp.DataAccessLayer.Cache;
 import java.io.File;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -13,12 +15,14 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 import animatefx.animation.*;
-
 import java.io.IOException;
 import javafx.util.Duration;
+
 public class Presentation extends Application {
     private FXMLLoader fxmlLoader;
     private Scene scene;
+    private BusinessLogic businessLogic;
+    private static Cache cache = new Cache();
     @Override
     public void start(Stage stage) throws IOException {
         // load file index.fxml
@@ -57,7 +61,8 @@ public class Presentation extends Application {
         MediaPlayer mediaPlayerAudio = new MediaPlayer(mediaAudio);
         mediaPlayerAudio.play();
 
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), actionEvent -> {
+        cache.putDataFromMySQL();
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(5), actionEvent -> {
             introPane.setVisible(false);
             mediaPlayer.pause();
             mediaPlayerAudio.pause();
@@ -68,5 +73,6 @@ public class Presentation extends Application {
 
     public static void main(String[] args) {
         launch();
+        cache.deleteAllDataInCache();
     }
 }

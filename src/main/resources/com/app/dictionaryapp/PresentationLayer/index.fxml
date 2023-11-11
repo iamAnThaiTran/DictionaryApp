@@ -23,7 +23,7 @@
       <URL value="@StyleBtn.css" />
   </stylesheets>
   <children>
-      <TableView fx:id="suggestionWordTableView" layoutY="121.0" onMouseClicked="#clickSuggestionWordTable" prefHeight="535.0" prefWidth="221.0">
+      <TableView fx:id="suggestionWordTableView" layoutY="121.0" onMouseClicked="#clickSuggestionWordTable" prefHeight="682.0" prefWidth="221.0">
         <columns>
           <TableColumn fx:id="suggestionWordCol" prefWidth="237.0" text="Suggestion Word" />
         </columns>

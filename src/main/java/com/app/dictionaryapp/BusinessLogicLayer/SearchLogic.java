@@ -11,8 +11,8 @@ public class SearchLogic {
     private final Database database = new Database("jdbc:mysql://localhost:3306/DictionaryDatabase", "root", "Khongco2004@");
     private final Cache cache = new Cache();
 
-    public String getDetail(String text) {
-        ResultSet resultSet = database.queryGetData("select description from av where word = '" + text + "'");
+    public String getDescriptionFromYourDictionary(String text) {
+        ResultSet resultSet = database.queryGetData("select description from YourDictionary where word = '" + text + "'");
 
         try {
             if (resultSet.next()) {
@@ -32,16 +32,7 @@ public class SearchLogic {
 
         try {
             if (resultSet1.next()) {
-                Document document = Jsoup.parse(resultSet1.getString("html"));
-
-                Elements h1 = document.select("h1");
-                Elements h3 = document.select("h3");
-
-                h1.remove();
-                h3.remove();
-
-
-                return document.toString();
+                return processHtml(resultSet1.getString("html"));
             } else {
                 return resultSet2.getString("description");
             }
@@ -62,5 +53,39 @@ public class SearchLogic {
             e.printStackTrace();
             return "";
         }
+    }
+
+    public String getHtmlFromCache(String text) {
+        if (!cache.getDataFromCache(text).getClass().equals(Exception.class)) {
+            return processHtml(cache.getDataFromCache(text).getLast());
+        } else if (cache.getDataFromCache(text).getClass().equals(Exception.class)
+        && !getDescriptionFromYourDictionary(text).equals("")) {
+            return getDescriptionFromYourDictionary(text);
+        } else {
+            return "";
+        }
+    }
+
+    public String getPronounceFromCache(String text) {
+        return cache.getDataFromCache(text).getFirst();
+    }
+
+    String processHtml(String text) {
+        Document document = Jsoup.parse(text);
+
+        Elements h1 = document.select("h1");
+        Elements h3 = document.select("h3");
+
+        h1.remove();
+        h3.remove();
+
+
+        return document.toString();
+    }
+
+
+    public static void main(String[] args) {
+        Exception exception = new Exception();
+        System.out.println(exception.getClass().equals(Exception.class));
     }
 }

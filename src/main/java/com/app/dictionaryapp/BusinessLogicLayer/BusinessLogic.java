@@ -159,7 +159,7 @@ public class BusinessLogic {
             } else {
                 text = upperCaseFirstLetter(text);
 
-                String res = searchLogic.getHtml(text);
+                String res = searchLogic.getHtmlFromCache(text.toLowerCase());
                 if (res.length() == 0) {
                     // webView
                     webView.setVisible(true);
@@ -208,7 +208,7 @@ public class BusinessLogic {
                 } else {
                     text = upperCaseFirstLetter(text);
 
-                    String res = searchLogic.getHtml(text);
+                    String res = searchLogic.getHtmlFromCache(text.toLowerCase());
                     if (res.length() == 0) {
                         // webview
                         loadCssForWebView();
@@ -232,31 +232,31 @@ public class BusinessLogic {
                     }
                 }
             } else if (event.getText().length() != 0){
-//                // set visible
-//                suggestionWordTableView.setVisible(true);
-////
-////                // change tablecol name
-//                suggestionWordCol.setText("Suggestion Word");
-////
-////                // clear table view
-//                suggestionWordTableView.getItems().clear();
-////
-////                // remove horizontal scroll
-//                suggestionWordTableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-////
-////                // get text
-//                String text = upperCaseFirstLetter((txtFieldSearch.getText() + event.getText()).toLowerCase());
-////
-////                // get observable list
-//                ObservableList<String> observableList = suggestionWordLogic.getObservableList(text);
-//
-////                // set item for tableview
-//                suggestionWordTableView.setItems(observableList);
-//                suggestionWordCol.setCellValueFactory(
-//                   cellData -> new SimpleStringProperty(cellData.getValue()));
-//                // get text
+                // set visible
+                suggestionWordTableView.setVisible(true);
+
+                // change tablecol name
+                suggestionWordCol.setText("Suggestion Word");
+
+                // clear table view
+                suggestionWordTableView.getItems().clear();
+
+                // remove horizontal scroll
+                suggestionWordTableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+
+                // get text
                 String text = upperCaseFirstLetter((txtFieldSearch.getText() + event.getText()).toLowerCase());
-                updateTableView(suggestionWordLogic.getObservableList(text), "Suggestion Word");
+
+                // get observable list
+                ObservableList<String> observableList = suggestionWordLogic.getObservableList(text);
+
+                // set item for tableview
+                suggestionWordTableView.setItems(observableList);
+                suggestionWordCol.setCellValueFactory(
+                   cellData -> new SimpleStringProperty(cellData.getValue()));
+//                // get text
+//                String text = upperCaseFirstLetter((txtFieldSearch.getText() + event.getText()).toLowerCase());
+//                updateTableView(suggestionWordLogic.getObservableList(text), "Suggestion Word");
             }
         }
     }
@@ -463,7 +463,7 @@ public class BusinessLogic {
         download.setVisible(false);
         downloadClick.setVisible(true);
 
-        String html = searchLogic.getHtml(txtFieldSearch.getText());
+        String html = searchLogic.getHtmlFromCache(txtFieldSearch.getText().toLowerCase());
         String htmlToPlainText = Jsoup.parse(html).wholeText();
 
     }
@@ -512,6 +512,10 @@ public class BusinessLogic {
         alert.showAndWait();
     }
 
+    void intro() {
+
+    }
     public static void main(String[] args) {
+
     }
 }

@@ -1,16 +1,16 @@
-G
-H
-I
-K
-L
-M
 Kkk
-E
-F
-D
-C
 Thailander
 A except b gate
 Hello
-B
+K
+L
+M
 A
+B
+C
+D
+E
+F
+G
+H
+I

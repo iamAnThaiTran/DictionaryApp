@@ -1,10 +1,13 @@
 package com.app.dictionaryapp.BusinessLogicLayer;
-
+import com.app.dictionaryapp.DataAccessLayer.Object;
 import animatefx.animation.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import com.jfoenix.controls.JFXToggleButton;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -37,9 +40,13 @@ public class BusinessLogic {
     private AnchorPane editPane;
     @FXML
     private ScrollPane displaySuggest;
-
-
+    @FXML
+    private AnchorPane settingPane;
+    @FXML
+    private AnchorPane miniSettingPane;
     // Button
+    @FXML
+    private Button btnStart;
     @FXML
     private Button btnDaily;
 
@@ -54,8 +61,22 @@ public class BusinessLogic {
 
     @FXML
     private Button btnSearch;
-
-
+    @FXML
+    private Button btnTextTranslation;
+    @FXML
+    private JFXToggleButton btnLang;
+    @FXML
+    private JFXToggleButton btnThemes;
+    @FXML
+    private Button btnEdit;
+    @FXML
+    private Button btnAdd;
+    @FXML
+    private Button btnUpdate;
+    @FXML
+    private Button btnDelete;
+    @FXML
+    private Button btnTextTranslate;
     // vbox
     @FXML
     private VBox dictionaryDisplay;
@@ -85,6 +106,16 @@ public class BusinessLogic {
     private ImageView download;
     @FXML
     private ImageView downloadClick;
+    @FXML
+    private ImageView btnUS;
+    @FXML
+    private ImageView btnUK;
+    @FXML
+    private ImageView btnTranslate;
+    @FXML
+    private ImageView WhiteThemes1;
+    @FXML
+    private ImageView WhiteThemes2;
 
     @FXML
     private TableView<String> suggestionWordTableView;
@@ -102,7 +133,18 @@ public class BusinessLogic {
     private Label word;
     @FXML
     private Label pronunciation;
-
+    @FXML
+    private Label labelThemes;
+    @FXML
+    private Label labelLang;
+    @FXML
+    private Label labelEdit;
+    @FXML
+    private Label labelWord;
+    @FXML
+    private Label labelDetail;
+    @FXML
+    private Label labelTextTranslation;
     // recent logic
     private final RecentLogic recentLogic = new RecentLogic();
 
@@ -124,6 +166,11 @@ public class BusinessLogic {
     // TextTranslate
     private final APITextTranslate apiTextTranslate = new APITextTranslate();
 
+    // SaveOrRead
+    private final Save_Or_Read saveOrRead = new Save_Or_Read();
+
+    // Address and variable
+    private final Object object = new Object();
     // Enum
     private enum MODE {
         SEARCH,
@@ -135,9 +182,10 @@ public class BusinessLogic {
     }
 
 
-    // mode
     private MODE mode = MODE.SEARCH;
+    // mode
 
+    //private ObservableList<String> observableList = FXCollections.observableArrayList();
 
     // StartNow Action
     @FXML
@@ -148,7 +196,8 @@ public class BusinessLogic {
     // Search
     @FXML
     void btnSearchAction(ActionEvent event) {
-        if (mode == MODE.SEARCH) {
+        //if (mode == MODE.SEARCH)
+        {
             // get text from TextField Search
             String text = txtFieldSearch.getText().toLowerCase();
 
@@ -157,9 +206,9 @@ public class BusinessLogic {
                 new Shake(txtFieldSearch).play();
                 new Shake(btnSearch).play();
             } else {
-                text = upperCaseFirstLetter(text);
+//                text = upperCaseFirstLetter(text);
 
-                String res = searchLogic.getHtmlFromCache(text.toLowerCase());
+                String res = searchLogic.getHtml(text);
                 if (res.length() == 0) {
                     // webView
                     webView.setVisible(true);
@@ -182,13 +231,16 @@ public class BusinessLogic {
                     recentLogic.addRecentWord(text);
 
                     //Table View.
-                    updateTableView(suggestionWordLogic.getObservableList(text), "Suggestion Word");
+                    //updateTableView(suggestionWordLogic.getObservableList(text), "Suggestion Word");
 
                     // favourites
                     if (favoritesLogic.checkTextInFavouriteFile(text)) {
                         btnStarToMark.setVisible(false);
                         btnStarToUnMark.setVisible(true);
                     }
+
+                    // add word to history.txt
+                    saveOrRead.setWord(text, object.getSearchWord_directory());
                 }
             }
         }
@@ -197,27 +249,32 @@ public class BusinessLogic {
     // key event text
     @FXML
     void textKeyEvent(KeyEvent event) {
+        if (editPane.isVisible() || textTranslation.isVisible()) {
+            txtFieldSearch.setEditable(false);
+        } else {
+            txtFieldSearch.setEditable(true);
+        }
         if (mode.equals(MODE.SEARCH)) {
-            // User click enter.
             if (event.getCode() == KeyCode.ENTER) {
-                String text = txtFieldSearch.getText().toLowerCase();
+                String text = txtFieldSearch.getText();
 
                 if (text.length() == 0) {
                     new Shake(txtFieldSearch).play();
                     new Shake(btnSearch).play();
                 } else {
-                    text = upperCaseFirstLetter(text);
-
-                    String res = searchLogic.getHtmlFromCache(text.toLowerCase());
+                    String res = searchLogic.getHtml(text);
                     if (res.length() == 0) {
                         // webview
                         loadCssForWebView();
                         webView.setVisible(true);
                         webView.getEngine().loadContent("No result!");
-
                         displayWordSound.setVisible(false);
-                    } else {
+                    } else  {
                         // display word and pronounce
+                        word.setText(text);
+                        pronunciation.setText(searchLogic.getPronounciation(text));
+                        displayWordSound.setVisible(true);
+
                         word.setText(text);
                         pronunciation.setText(searchLogic.getPronounciation(text));
                         displayWordSound.setVisible(true);
@@ -231,32 +288,15 @@ public class BusinessLogic {
                         recentLogic.addRecentWord(text);
                     }
                 }
-            } else if (event.getText().length() != 0){
-                // set visible
-                suggestionWordTableView.setVisible(true);
-
-                // change tablecol name
-                suggestionWordCol.setText("Suggestion Word");
-
-                // clear table view
+            } else if (event.getText().length() != 0) {
                 suggestionWordTableView.getItems().clear();
-
-                // remove horizontal scroll
-                suggestionWordTableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-
-                // get text
-                String text = upperCaseFirstLetter((txtFieldSearch.getText() + event.getText()).toLowerCase());
-
-                // get observable list
-                ObservableList<String> observableList = suggestionWordLogic.getObservableList(text);
-
-                // set item for tableview
+                //System.out.println(event.getText());
+                suggestionWordTableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY); // remove horizontal
+                String text = txtFieldSearch.getText();// + event.getText();
+                ObservableList<String> observableList = FXCollections.observableArrayList();
+                observableList = suggestionWordLogic.getObservableList(text);
                 suggestionWordTableView.setItems(observableList);
-                suggestionWordCol.setCellValueFactory(
-                   cellData -> new SimpleStringProperty(cellData.getValue()));
-//                // get text
-//                String text = upperCaseFirstLetter((txtFieldSearch.getText() + event.getText()).toLowerCase());
-//                updateTableView(suggestionWordLogic.getObservableList(text), "Suggestion Word");
+                suggestionWordCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()));
             }
         }
     }
@@ -271,13 +311,10 @@ public class BusinessLogic {
     @FXML
     void textTranslationAction(ActionEvent event) {
         mode = MODE.TEXTTRANSLATION;
-
         textTranslation.setVisible(true);
-
         // set edit txtFieldSearch
         txtFieldSearch.setEditable(false);
         txtFieldSearch.setText("");
-
 //        // set visible false
 //        editPane.setVisible(false);
 //        suggestionWordTableView.setVisible(false);
@@ -303,14 +340,15 @@ public class BusinessLogic {
 
         // set editable
         txtFieldSearch.setEditable(true);
+        suggestionWordTableView.setVisible(true);
     }
 
     // Favorites Button
     @FXML
     void favoritesAction(ActionEvent event) {
         mode = MODE.SEARCH;
-
-        updateTableView(favoritesLogic.getContentInFavourite(), "Favourite Word");
+        if(btnLang.isSelected()) updateTableView(favoritesLogic.getContentInFavourite(),"Từ yêu thích");
+        else updateTableView(favoritesLogic.getContentInFavourite(), "Favourite Word");
 
         // set editable
         txtFieldSearch.setEditable(true);
@@ -337,8 +375,8 @@ public class BusinessLogic {
     void recentAction(ActionEvent event) {
         mode = MODE.SEARCH;
 
-        updateTableView(recentLogic.getContentRecent(), "Recent Word");
-
+        if(!btnLang.isSelected()) updateTableView(recentLogic.getContentRecent(), "Recent Word");
+        else updateTableView(recentLogic.getContentRecent(),"Từ gần đây");
         // set txtFieldSearch
         txtFieldSearch.setText("");
         txtFieldSearch.setEditable(true);
@@ -356,12 +394,16 @@ public class BusinessLogic {
     // Setting Button
     @FXML
     void moveSettingBtn(MouseEvent mouseEvent) {
-
+        miniSettingPane.setVisible(true);
+    }
+    @FXML
+    void exitSettingBtn(MouseEvent mouseEvent) {
+        miniSettingPane.setVisible(false);
     }
 
     @FXML
     void clickSettingBtn(MouseEvent mouseEvent) {
-
+        settingPane.setVisible(true);
     }
 
     // Edit Button
@@ -370,7 +412,9 @@ public class BusinessLogic {
         mode = MODE.EDIT;
 
         editPane.setVisible(true);
-
+        miniSettingPane.setVisible(false);
+        settingPane.setVisible(false);
+        suggestionWordTableView.setVisible(false);
         // set edit txtFieldSearch
         txtFieldSearch.setEditable(false);
         txtFieldSearch.setText("");
@@ -463,7 +507,7 @@ public class BusinessLogic {
         download.setVisible(false);
         downloadClick.setVisible(true);
 
-        String html = searchLogic.getHtmlFromCache(txtFieldSearch.getText().toLowerCase());
+        String html = searchLogic.getHtml(txtFieldSearch.getText());
         String htmlToPlainText = Jsoup.parse(html).wholeText();
 
     }
@@ -476,7 +520,6 @@ public class BusinessLogic {
 
     void loadCssForWebView() {
         webEngine = webView.getEngine();
-
         String path = getClass().getResource("/com/app/dictionaryapp/PresentationLayer/StyleWebView.css").toExternalForm();
         webEngine.setUserStyleSheetLocation(path);
     }
@@ -511,11 +554,68 @@ public class BusinessLogic {
         alert.setContentText(contentText);
         alert.showAndWait();
     }
-
-    void intro() {
-
+    @FXML
+    void closeSettingPane(MouseEvent event) {
+        settingPane.setVisible(false);
+        suggestionWordTableView.setVisible(true);
+    }
+    @FXML
+    void changeTranslationSetting(MouseEvent event) {
+        if (btnLang.isSelected()) {
+            btnRecent.setText("Gần đây");
+            btnGames.setText("Trò chơi");
+            btnTextTranslation.setText("Văn bản");
+            btnFavorites.setText("Yêu thích");
+            btnEdit.setText("Chỉnh sửa");
+            btnUS.setAccessibleText("Anh Mỹ");
+            btnUK.setAccessibleText("Anh Anh");
+            btnTextTranslation.setText("Dịch");
+            //btnStart.setText("Báº¯t Ä‘áº§u");
+            suggestionWordCol.setText("Từ gợi ý");
+            labelLang.setText("Ngôn ngữ");
+            btnLang.setText("Tiếng Anh");
+            labelThemes.setText("Chế độ màn hình");
+            btnThemes.setText("Tối");
+            btnTextTranslate.setText("Dịch");
+            labelTextTranslation.setText("Dịch văn bản");
+        }
+        else if(!btnLang.isSelected())
+        {
+            btnRecent.setText("Recent");
+            btnGames.setText("Game");
+            btnTextTranslation.setText("Text Translation");
+            btnFavorites.setText("Favourite");
+            btnEdit.setText("Edit");
+            btnUS.setAccessibleText("US");
+            btnUK.setAccessibleText("UK");
+            btnTextTranslation.setText("Translate");
+           // btnStart.setText("Start");
+            suggestionWordCol.setText("Suggestion Word");
+            labelLang.setText("Language");
+            btnLang.setText("Vietnamese");
+            labelThemes.setText("Themes");
+            btnThemes.setText("Dark");
+            btnTextTranslation.setText("Translate");
+            labelTextTranslation.setText("Text Translation");
+            inputTextTranslation.setPromptText("Đoạn văn bản cần dịch");
+            outputTextTranslation.setPromptText("Đoạn văn bản đã dịch");
+            inputTextTranslation.setPromptText("Input");
+            outputTextTranslation.setPromptText("Output");
+        }
+        if(btnThemes.isSelected())
+        {
+            WhiteThemes1.setVisible(true);
+            WhiteThemes2.setVisible(true);
+            mainPane.getStylesheets().remove(object.getDarkMode());
+            mainPane.getStylesheets().add(object.getLightMode());
+        }
+        else {
+            mainPane.getStylesheets().remove(object.getLightMode());
+            mainPane.getStylesheets().add(object.getDarkMode());
+            WhiteThemes1.setVisible(false);
+            WhiteThemes2.setVisible(false);
+        }
     }
     public static void main(String[] args) {
-
     }
 }

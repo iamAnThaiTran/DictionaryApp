@@ -122,3 +122,9 @@
 #suggestionWordCol .text {
     -fx-font-size: 15px;
 }
+#settingPane.label {
+    -fx-font-size: 20px;
+}
+#settingPane.toggle-button.text {
+    -fx-font-size : 10px;
+}

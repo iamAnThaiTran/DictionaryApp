@@ -1,6 +1,7 @@
 package com.app.dictionaryapp.BusinessLogicLayer;
 
 import animatefx.animation.*;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -149,89 +150,26 @@ public class BusinessLogic {
     @FXML
     void btnSearchAction(ActionEvent event) {
         if (mode == MODE.SEARCH) {
-            // get text from TextField Search
-            String text = txtFieldSearch.getText().toLowerCase();
-
-            // check length of String
-            if (text.length() == 0) {
-                new Shake(txtFieldSearch).play();
-                new Shake(btnSearch).play();
-            } else {
-                text = upperCaseFirstLetter(text);
-
-                String res = searchLogic.getHtmlFromCache(text.toLowerCase());
-                if (res.length() == 0) {
-                    // webView
-                    webView.setVisible(true);
-                    loadCssForWebView();
-                    webEngine.loadContent("No result!");
-
-                    displayWordSound.setVisible(false);
-                } else {
-                    // display word and pronounce
-                    word.setText(text);
-                    pronunciation.setText(searchLogic.getPronounciation(text));
-                    displayWordSound.setVisible(true);
-
-                    // webview
-                    loadCssForWebView();
-                    webView.setVisible(true);
-                    webEngine.loadContent(res);
-
-                    // add word to recent.txt
-                    recentLogic.addRecentWord(text);
-
-                    //Table View.
-                    updateTableView(suggestionWordLogic.getObservableList(text), "Suggestion Word");
-
-                    // favourites
-                    if (favoritesLogic.checkTextInFavouriteFile(text)) {
-                        btnStarToMark.setVisible(false);
-                        btnStarToUnMark.setVisible(true);
-                    }
-                }
+            try {
+                searchLogic();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
 
     // key event text
     @FXML
-    void textKeyEvent(KeyEvent event) {
+    void textKeyEvent(KeyEvent event) throws SQLException {
         if (mode.equals(MODE.SEARCH)) {
             // User click enter.
             if (event.getCode() == KeyCode.ENTER) {
-                String text = txtFieldSearch.getText().toLowerCase();
-
-                if (text.length() == 0) {
-                    new Shake(txtFieldSearch).play();
-                    new Shake(btnSearch).play();
-                } else {
-                    text = upperCaseFirstLetter(text);
-
-                    String res = searchLogic.getHtmlFromCache(text.toLowerCase());
-                    if (res.length() == 0) {
-                        // webview
-                        loadCssForWebView();
-                        webView.setVisible(true);
-                        webView.getEngine().loadContent("No result!");
-
-                        displayWordSound.setVisible(false);
-                    } else {
-                        // display word and pronounce
-                        word.setText(text);
-                        pronunciation.setText(searchLogic.getPronounciation(text));
-                        displayWordSound.setVisible(true);
-
-                        // webview
-                        loadCssForWebView();
-                        webView.setVisible(true);
-                        webEngine.loadContent(res);
-
-                        // add word to recent.txt
-                        recentLogic.addRecentWord(text);
-                    }
+                try {
+                    searchLogic();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            } else if (event.getText().length() != 0){
+            } else if (event.getText().length() != 0) {
                 // set visible
                 suggestionWordTableView.setVisible(true);
 
@@ -245,18 +183,17 @@ public class BusinessLogic {
                 suggestionWordTableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
                 // get text
-                String text = upperCaseFirstLetter((txtFieldSearch.getText() + event.getText()).toLowerCase());
+                String text = upperCaseFirstLetter(
+                    (txtFieldSearch.getText() + event.getText()).toLowerCase());
 
                 // get observable list
-                ObservableList<String> observableList = suggestionWordLogic.getObservableList(text);
+                ObservableList<String> observableList = suggestionWordLogic.autoSuggestionUsingTrie(
+                    text);
 
                 // set item for tableview
                 suggestionWordTableView.setItems(observableList);
                 suggestionWordCol.setCellValueFactory(
-                   cellData -> new SimpleStringProperty(cellData.getValue()));
-//                // get text
-//                String text = upperCaseFirstLetter((txtFieldSearch.getText() + event.getText()).toLowerCase());
-//                updateTableView(suggestionWordLogic.getObservableList(text), "Suggestion Word");
+                    cellData -> new SimpleStringProperty(cellData.getValue()));
             }
         }
     }
@@ -278,21 +215,18 @@ public class BusinessLogic {
         txtFieldSearch.setEditable(false);
         txtFieldSearch.setText("");
 
-//        // set visible false
-//        editPane.setVisible(false);
-//        suggestionWordTableView.setVisible(false);
-//        displayWordSound.setVisible(false);
-//        webView.setVisible(false);
-
+        // set editPane, suggestionWordTableView, displayWordSound, webView visible false
         List<Node> nodes = new ArrayList<>();
         Collections.addAll(nodes, editPane, suggestionWordTableView, displayWordSound, webView);
         setVisibleFalse(nodes);
     }
+
     @FXML
     void translateTextTranslation(ActionEvent event) {
         String text = inputTextTranslation.getText();
         outputTextTranslation.setText(apiTextTranslate.translate(text));
     }
+
     @FXML
     void close(MouseEvent event) {
         mode = MODE.SEARCH;
@@ -315,12 +249,7 @@ public class BusinessLogic {
         // set editable
         txtFieldSearch.setEditable(true);
 
-//        // set visible false
-//        displayWordSound.setVisible(false);
-//        webView.setVisible(false);
-//        textTranslation.setVisible(false);
-//        editPane.setVisible(false);
-
+        // set displayWordSound, webView, textTranslation, editPane visible false
         List<Node> nodes = new ArrayList<>();
         Collections.addAll(nodes, displayWordSound, webView, textTranslation, editPane);
         setVisibleFalse(nodes);
@@ -343,11 +272,7 @@ public class BusinessLogic {
         txtFieldSearch.setText("");
         txtFieldSearch.setEditable(true);
 
-//        // set visible false
-//        displayWordSound.setVisible(false);
-//        webView.setVisible(false);
-//        textTranslation.setVisible(false);
-//        editPane.setVisible(false);
+        // set displayWordSound, webView, textTranslation, editPane visible false
         List<Node> nodes = new ArrayList<>();
         Collections.addAll(nodes, displayWordSound, webView, textTranslation, editPane);
         setVisibleFalse(nodes);
@@ -375,13 +300,9 @@ public class BusinessLogic {
         txtFieldSearch.setEditable(false);
         txtFieldSearch.setText("");
 
-        // set visible false
-//        textTranslation.setVisible(false);
-//        suggestionWordTableView.setVisible(false);
-//        displayWordSound.setVisible(false);
-//        webView.setVisible(false);
         List<Node> nodeList = new ArrayList<>();
-        Collections.addAll(nodeList, textTranslation, suggestionWordTableView, displayWordSound, webView);
+        Collections.addAll(nodeList, textTranslation, suggestionWordTableView, displayWordSound,
+            webView);
         setVisibleFalse(nodeList);
 
     }
@@ -389,7 +310,7 @@ public class BusinessLogic {
     @FXML
     void addBtnEdit(ActionEvent event) {
         if (wordEdit.getText().length() == 0 ||
-        descriptionEdit.getText().length() == 0) {
+            descriptionEdit.getText().length() == 0) {
             showAlert("Error add new word", "", AlertType.ERROR);
         } else {
             if (editLogic.insert(upperCaseFirstLetter(wordEdit.getText().toLowerCase())
@@ -409,7 +330,7 @@ public class BusinessLogic {
         } else {
             editLogic.update(upperCaseFirstLetter(wordEdit.getText().toLowerCase()),
                 upperCaseFirstLetter(descriptionEdit.getText().toLowerCase()));
-                showAlert("Update new word successfully", "", AlertType.INFORMATION);
+            showAlert("Update new word successfully", "", AlertType.INFORMATION);
 
         }
     }
@@ -477,7 +398,8 @@ public class BusinessLogic {
     void loadCssForWebView() {
         webEngine = webView.getEngine();
 
-        String path = getClass().getResource("/com/app/dictionaryapp/PresentationLayer/StyleWebView.css").toExternalForm();
+        String path = getClass().getResource(
+            "/com/app/dictionaryapp/PresentationLayer/StyleWebView.css").toExternalForm();
         webEngine.setUserStyleSheetLocation(path);
     }
 
@@ -488,6 +410,7 @@ public class BusinessLogic {
 
         return firstText + remainText;
     }
+
 
     void updateTableView(ObservableList<String> observableList, String title) {
         suggestionWordTableView.getItems().clear();
@@ -515,7 +438,57 @@ public class BusinessLogic {
     void intro() {
 
     }
-    public static void main(String[] args) {
 
+    void setFavoritesBtn(String text) {
+        // favourites
+        if (favoritesLogic.checkTextInFavouriteFile(text)) {
+            btnStarToMark.setVisible(false);
+            btnStarToUnMark.setVisible(true);
+        } else {
+            btnStarToMark.setVisible(true);
+            btnStarToUnMark.setVisible(false);
+        }
+    }
+
+    void searchLogic() throws Exception {
+        // get text from TextField Search
+        String text = txtFieldSearch.getText().toLowerCase();
+
+        // check length of String
+        if (text.length() == 0) {
+            new Shake(txtFieldSearch).play();
+            new Shake(btnSearch).play();
+        } else {
+            text = upperCaseFirstLetter(text);
+
+            String res = searchLogic.getHtmlFromCache(text.toLowerCase());
+            if (res.length() == 0) {
+                // webView
+                webView.setVisible(true);
+                loadCssForWebView();
+                webEngine.loadContent("No result!");
+
+                displayWordSound.setVisible(false);
+            } else {
+                // display word and pronounce
+                word.setText(text);
+                pronunciation.setText(searchLogic.getPronounciation(text));
+                displayWordSound.setVisible(true);
+
+                // webview
+                loadCssForWebView();
+                webView.setVisible(true);
+                webEngine.loadContent(res);
+
+                // add word to recent.txt
+                recentLogic.addRecentWord(text);
+
+                //Table View.
+                updateTableView(suggestionWordLogic.autoSuggestionUsingTrie(text),
+                    "Suggestion Word");
+
+                setFavoritesBtn(text);
+            }
+        }
     }
 }

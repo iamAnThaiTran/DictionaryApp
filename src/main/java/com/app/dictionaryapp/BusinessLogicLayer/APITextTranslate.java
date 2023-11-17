@@ -7,7 +7,7 @@ import java.net.http.HttpResponse;
 import org.json.*;
 
 public class APITextTranslate {
-    private final API api = new API("https://text-translator2.p.rapidapi.com/translate", "6f22e6bbf4mshc8e808871b5b310p1c99cajsnda97e360477f");
+    private final API api = new API("https://text-translator2.p.rapidapi.com/translate", "6f22e6bbf4mshc8e808871b5b310p1c99cajsnda97e360477f ");
 
     public String translate(String text) {
         String json;

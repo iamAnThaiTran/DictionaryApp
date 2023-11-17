@@ -1,0 +1,130 @@
+
+#textTranslation {
+
+}
+
+#displayWordSound {
+    -fx-background-color: #05193a;
+    -fx-border-color: #307AA7FF;
+}
+
+#mainPane {
+    -fx-background-color: linear-gradient(to right bottom, #051937, #001d2f, #001d1f, #001a11, #111607);
+}
+#introPane {
+    /*-fx-background-image: url("Icon/IntroBackground.jpg");*/
+    -fx-background-color: #000000;
+}
+
+#textTranslation {
+    -fx-background-color: linear-gradient(to bottom left, #231557 0%, #44107A 29%, #FF1361 67%, #FFF800 100%);
+}
+
+#editPane {
+    -fx-background-color: linear-gradient(to right, #126fe9, #c471ed, #f64f59);
+}
+
+.btn {
+    -fx-background-color: #023b6d;
+}
+
+.btn:hover {
+    -fx-background-color: #307aa7;
+}
+
+#txtFieldSearch {
+    -fx-text-fill: #f7dfdf;
+    -fx-background-radius: 18px;
+    -fx-background-color: #02305a;
+
+}
+
+#btnSearch {
+    -fx-background-radius: 0 20 20 0 ;
+    -fx-background-color: #266397;
+}
+
+.imageViewScale:hover {
+    -fx-scale-x: 0.8;
+    -fx-scale-y: 0.8;
+}
+
+#btnStar:hover {
+    -fx-background-color: red;
+}
+
+#btnSound {
+
+}
+
+#topApp {
+    -fx-background-color: #023b6d;
+}
+
+#settingScene {
+    -fx-background-image: url("Icon/SettingBackground.jpg");
+}
+
+.text-area {
+    /* Shadow effect */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 5.0, 5.0);
+}
+.text-area .content {
+    -fx-background-color: white;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+.text-area:focused .content {
+    -fx-background-color: white;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+.textAreaInTextTranslation {
+    -fx-background-color: rgba(53,89,119,0.4);
+    -fx-text-fill: #fde0e0;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 5.0, 5.0);
+}
+
+.textAreaInTextTranslation.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.textAreaInTextTranslation .scroll-pane .viewport{
+    -fx-background-color: transparent;
+}
+
+
+.textAreaInTextTranslation .scroll-pane .content{
+    -fx-background-color: transparent;
+}
+
+#suggestionWordTableView {
+    /*-fx-effect: dropshadow(gaussian, rgb(87, 119, 250), 10, 0, 5.0, 5.0);*/
+    -fx-background-color: transparent;
+    -fx-base: transparent;
+    /*-fx-border-color: transparent 001A11FF transparent transparent;*/
+}
+
+
+
+#suggestionWordTableView .cell {
+    -fx-text-fill: #ffdede;
+    -fx-border-color: transparent transparent #4a66fa transparent;
+    -fx-border-width: 1px;
+    -fx-font-size: 20px;
+}
+
+#suggestionWordTableView .cell:selected {
+
+}
+
+#suggestionWordCol .text {
+    -fx-font-size: 15px;
+}
+#settingPane.label {
+    -fx-font-size: 20px;
+}
+#settingPane.toggle-button.text {
+    -fx-font-size : 10px;
+}

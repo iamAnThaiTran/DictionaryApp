@@ -37,6 +37,8 @@ public class BusinessLogic {
     @FXML
     private AnchorPane editPane;
     @FXML
+    private AnchorPane miniSettingPane;
+    @FXML
     private ScrollPane displaySuggest;
 
 
@@ -280,12 +282,22 @@ public class BusinessLogic {
 
     // Setting Button
     @FXML
-    void moveSettingBtn(MouseEvent mouseEvent) {
+    void clickSettingBtn(MouseEvent mouseEvent) {
 
+    }
+    
+    @FXML
+    void exitSettingBtn(MouseEvent mouseEvent) {
+        
     }
 
     @FXML
-    void clickSettingBtn(MouseEvent mouseEvent) {
+    void moveSettingBtn(MouseEvent mouseEvent) {
+        miniSettingPane.setVisible(true);
+    }
+
+    @FXML
+    void changeTranslationSetting(MouseEvent mouseEvent) {
 
     }
 

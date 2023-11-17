@@ -112,16 +112,14 @@
     -fx-text-fill: #ffdede;
     -fx-border-color: transparent transparent #4a66fa transparent;
     -fx-border-width: 1px;
-    -fx-font-size: 20px;
+    -fx-font-size: 19px;
 }
 
 #suggestionWordTableView .cell:selected {
 
 }
 
-#suggestionWordCol .text {
-    -fx-font-size: 15px;
-}
+
 #settingPane.label {
     -fx-font-size: 20px;
 }

@@ -20,6 +20,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import com.jfoenix.controls.JFXToggleButton;
+import com.app.dictionaryapp.DataAccessLayer.Object;
+
 import org.jsoup.Jsoup;
 
 public class BusinessLogic {
@@ -36,6 +39,8 @@ public class BusinessLogic {
     private AnchorPane textTranslation;
     @FXML
     private AnchorPane editPane;
+    @FXML
+    private AnchorPane settingPane;
     @FXML
     private AnchorPane miniSettingPane;
     @FXML
@@ -106,6 +111,47 @@ public class BusinessLogic {
     @FXML
     private Label pronunciation;
 
+    @FXML
+    private Button btnTextTranslation;
+    @FXML
+    private JFXToggleButton btnLang;
+    @FXML
+    private JFXToggleButton btnThemes;
+    @FXML
+    private Button btnEdit;
+    @FXML
+    private Button btnAdd;
+    @FXML
+    private Button btnUpdate;
+    @FXML
+    private Button btnDelete;
+    @FXML
+    private Button btnTextTranslate;
+
+    @FXML
+    private ImageView btnUS;
+    @FXML
+    private ImageView btnUK;
+    @FXML
+    private ImageView btnTranslate;
+    @FXML
+    private ImageView WhiteThemes1;
+    @FXML
+    private ImageView WhiteThemes2;
+
+    @FXML
+    private Label labelThemes;
+    @FXML
+    private Label labelLang;
+    @FXML
+    private Label labelEdit;
+    @FXML
+    private Label labelWord;
+    @FXML
+    private Label labelDetail;
+    @FXML
+    private Label labelTextTranslation;
+
     // recent logic
     private final RecentLogic recentLogic = new RecentLogic();
 
@@ -127,6 +173,9 @@ public class BusinessLogic {
     // TextTranslate
     private final APITextTranslate apiTextTranslate = new APITextTranslate();
 
+
+    private final Object object = new Object();
+
     // Enum
     private enum MODE {
         SEARCH,
@@ -141,13 +190,6 @@ public class BusinessLogic {
     // mode
     private MODE mode = MODE.SEARCH;
 
-
-    // StartNow Action
-    @FXML
-    void startNowAction(ActionEvent event) {
-        introPane.setVisible(false);
-    }
-
     // Search
     @FXML
     void btnSearchAction(ActionEvent event) {
@@ -155,7 +197,7 @@ public class BusinessLogic {
             try {
                 searchLogic();
             } catch (Exception e) {
-                e.printStackTrace();
+                return;
             }
         }
     }
@@ -169,14 +211,19 @@ public class BusinessLogic {
                 try {
                     searchLogic();
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    return;
                 }
             } else if (event.getText().length() != 0) {
                 // set visible
                 suggestionWordTableView.setVisible(true);
 
                 // change tablecol name
-                suggestionWordCol.setText("Suggestion Word");
+                if (btnLang.isSelected()) {
+                    suggestionWordCol.setText("Từ gợi ý");
+                }
+                else {
+                    suggestionWordCol.setText("Suggestion Word");
+                }
 
                 // clear table view
                 suggestionWordTableView.getItems().clear();
@@ -236,6 +283,7 @@ public class BusinessLogic {
         // set visible false
         textTranslation.setVisible(false);
         editPane.setVisible(false);
+        settingPane.setVisible(false);
 
         // set editable
         txtFieldSearch.setEditable(true);
@@ -246,7 +294,15 @@ public class BusinessLogic {
     void favoritesAction(ActionEvent event) {
         mode = MODE.SEARCH;
 
-        updateTableView(favoritesLogic.getContentInFavourite(), "Favourite Word");
+        String title;
+
+        if (btnLang.isSelected()) {
+            title = "Yêu thích";
+        } else {
+            title = "Favourite Word";
+        }
+
+        updateTableView(favoritesLogic.getContentInFavourite(), title);
 
         // set editable
         txtFieldSearch.setEditable(true);
@@ -267,8 +323,14 @@ public class BusinessLogic {
     @FXML
     void recentAction(ActionEvent event) {
         mode = MODE.SEARCH;
+        String title;
 
-        updateTableView(recentLogic.getContentRecent(), "Recent Word");
+        if (btnLang.isSelected()) {
+            title = "Gần đây";
+        } else {
+            title = "Recent Word";
+        }
+        updateTableView(recentLogic.getContentRecent(), title);
 
         // set txtFieldSearch
         txtFieldSearch.setText("");
@@ -282,23 +344,73 @@ public class BusinessLogic {
 
     // Setting Button
     @FXML
-    void clickSettingBtn(MouseEvent mouseEvent) {
-
-    }
-    
-    @FXML
-    void exitSettingBtn(MouseEvent mouseEvent) {
-        
-    }
-
-    @FXML
     void moveSettingBtn(MouseEvent mouseEvent) {
         miniSettingPane.setVisible(true);
     }
+    @FXML
+    void exitSettingBtn(MouseEvent mouseEvent) {
+        miniSettingPane.setVisible(false);
+    }
 
     @FXML
-    void changeTranslationSetting(MouseEvent mouseEvent) {
+    void clickSettingBtn(MouseEvent mouseEvent) {
+        settingPane.setVisible(true);
+    }
 
+    @FXML
+    void changeTranslationSetting(MouseEvent event) {
+        if (btnLang.isSelected()) {
+            btnRecent.setText("Gần đây");
+            btnGames.setText("Trò chơi");
+            btnTextTranslation.setText("Văn bản");
+            btnFavorites.setText("Yêu thích");
+            btnEdit.setText("Chỉnh sửa");
+            txtFieldSearch.setPromptText("Tìm kiếm");
+            btnUS.setAccessibleText("Anh Mỹ");
+            btnUK.setAccessibleText("Anh Anh");
+            btnTextTranslation.setText("Dịch");
+            suggestionWordCol.setText("Từ gợi ý");
+            labelLang.setText("Ngôn ngữ");
+            btnLang.setText("Tiếng Anh");
+            labelThemes.setText("Chế độ màn hình");
+            btnThemes.setText("Tối");
+            btnTextTranslate.setText("Dịch");
+            labelTextTranslation.setText("Dịch văn bản");
+            inputTextTranslation.setPromptText("Đoạn văn bản cần dịch");
+            outputTextTranslation.setPromptText("Đoạn văn bản đã dịch");
+            labelEdit.setText("Chỉnh sửa từ điển");
+        } else if(!btnLang.isSelected()) {
+            btnRecent.setText("Recent");
+            btnGames.setText("Game");
+            btnTextTranslation.setText("Text Translation");
+            btnFavorites.setText("Favourite");
+            btnEdit.setText("Edit");
+            txtFieldSearch.setPromptText("Search");
+            btnUS.setAccessibleText("US");
+            btnUK.setAccessibleText("UK");
+            btnTextTranslation.setText("Translate");
+            suggestionWordCol.setText("Suggestion Word");
+            labelLang.setText("Language");
+            btnLang.setText("Vietnamese");
+            labelThemes.setText("Themes");
+            btnThemes.setText("Dark");
+            btnTextTranslation.setText("Translate");
+            labelTextTranslation.setText("Text Translation");
+            inputTextTranslation.setPromptText("Input");
+            outputTextTranslation.setPromptText("Output");
+            labelEdit.setText("Edit Dictionary");
+        }
+
+        if(btnThemes.isSelected())
+        {
+            mainPane.getStylesheets().remove(object.getDarkMode());
+            mainPane.getStylesheets().add(object.getLightMode());
+            webView.getEngine().setUserStyleSheetLocation(object.getLightModeWebView());
+        } else {
+            mainPane.getStylesheets().remove(object.getLightMode());
+            mainPane.getStylesheets().add(object.getDarkMode());
+            webView.getEngine().setUserStyleSheetLocation(object.getDarkModeWebView());
+        }
     }
 
     // Edit Button
@@ -371,6 +483,11 @@ public class BusinessLogic {
         audioLogic.playAudio(word.getText(), "US");
     }
 
+    @FXML
+    void soundInTextTranslation(MouseEvent event) {
+        audioLogic.playAudio(inputTextTranslation.getText(), "UK");
+    }
+
     // Star Button
     @FXML
     void clickStarToMark(MouseEvent event) {
@@ -409,10 +526,11 @@ public class BusinessLogic {
 
     void loadCssForWebView() {
         webEngine = webView.getEngine();
-
-        String path = getClass().getResource(
-            "/com/app/dictionaryapp/PresentationLayer/StyleWebView.css").toExternalForm();
-        webEngine.setUserStyleSheetLocation(path);
+        if (btnThemes.isSelected()) {
+            webEngine.setUserStyleSheetLocation(object.getLightModeWebView());
+        } else {
+            webEngine.setUserStyleSheetLocation(object.getDarkModeWebView());
+        }
     }
 
 

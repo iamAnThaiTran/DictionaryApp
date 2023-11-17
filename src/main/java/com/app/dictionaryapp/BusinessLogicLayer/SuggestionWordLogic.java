@@ -8,15 +8,15 @@ import javafx.collections.ObservableList;
 import java.sql.ResultSet;
 
 public class SuggestionWordLogic {
-    private Trie trie = new Trie();
-    private Database database = new Database("jdbc:mysql://localhost:3306/DictionaryDatabase", "root", "Khongco2004@");
-    private ObservableList<String> observableList = FXCollections.observableArrayList();
+    private final Trie trie;
+    private final Database database = new Database("jdbc:mysql://localhost:3306/DictionaryDatabase", "root", "Khongco2004@");
+    private final ObservableList<String> observableList = FXCollections.observableArrayList();
 
     public SuggestionWordLogic() {
         trie = new Trie();
         database.connectToDatabase();
         try {
-            trie.insertWordFromDatabase();
+            trie.insertAllWord();
         } catch (Exception e) {
 
         }
@@ -26,7 +26,7 @@ public class SuggestionWordLogic {
     public ObservableList<String> getObservableList(String text) {
         database.connectToDatabase();
         ResultSet resultSet = database.queryGetData("select word from av where word like '" + text + "%'");
-        Data data = new Data();
+
         try {
             while (resultSet.next()) {
                 String word = resultSet.getString("word");

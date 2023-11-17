@@ -5,13 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27d5082d-b2f1-4f51-a982-13a95348dd5a" name="Changes" comment="update">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/LightModeWebView.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/APITextTranslate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/APITextTranslate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/BusinessLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/BusinessLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/SearchLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/SearchLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/SuggestionWordLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/SuggestionWordLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/Trie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/Trie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/DataAccessLayer/Object.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/DataAccessLayer/Object.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/DarkMode.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/DarkMode.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/LightMode.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/LightMode.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Txt/Favorites.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Txt/Favorites.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Txt/Recent.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Txt/Recent.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/index.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/index.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +28,7 @@
       <list>
         <option value="package.json" />
         <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -53,6 +59,7 @@
     &quot;database.data.extractors.current.export.id&quot;: &quot;SQL Inserts&quot;,
     &quot;database.data.extractors.current.id&quot;: &quot;Comma-separated (CSV)_id&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/macbook/Desktop/Tài Liệu/OOP/ItellijProject/DictionaryApp/src/main/resources/com/app/dictionaryapp/PresentationLayer/Audio&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -231,7 +238,10 @@
       <workItem from="1700033854971" duration="6023000" />
       <workItem from="1700104976794" duration="5591000" />
       <workItem from="1700114627062" duration="294000" />
-      <workItem from="1700120049833" duration="11360000" />
+      <workItem from="1700120049833" duration="16010000" />
+      <workItem from="1700212227917" duration="2414000" />
+      <workItem from="1700228346192" duration="8986000" />
+      <workItem from="1700239353507" duration="2774000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -285,7 +295,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/BusinessLogic.java</url>
-          <line>363</line>
+          <line>492</line>
           <properties class="com.app.dictionaryapp.BusinessLogicLayer.BusinessLogic" method="clickStarToMark">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -294,7 +304,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/BusinessLogic.java</url>
-          <line>372</line>
+          <line>501</line>
           <properties class="com.app.dictionaryapp.BusinessLogicLayer.BusinessLogic" method="clickStarToUnMark">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -303,7 +313,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/BusinessLogic.java</url>
-          <line>310</line>
+          <line>434</line>
           <properties class="com.app.dictionaryapp.BusinessLogicLayer.BusinessLogic" method="addBtnEdit">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -312,12 +322,21 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/BusinessLogic.java</url>
-          <line>150</line>
+          <line>194</line>
           <properties class="com.app.dictionaryapp.BusinessLogicLayer.BusinessLogic" method="btnSearchAction">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/SearchLogic.java</url>
+          <line>56</line>
+          <properties class="com.app.dictionaryapp.BusinessLogicLayer.SearchLogic" method="getHtmlFromCache">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/SearchLogic.java</url>
@@ -326,7 +345,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/BusinessLogic.java</url>
-          <line>268</line>
+          <line>332</line>
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

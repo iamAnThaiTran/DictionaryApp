@@ -1,9 +1,9 @@
 package com.app.dictionaryapp.BusinessLogicLayer;
 
+import com.app.dictionaryapp.DataAccessLayer.Cache;
 import com.app.dictionaryapp.DataAccessLayer.Database;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 import javafx.collections.FXCollections;
@@ -28,6 +28,7 @@ public class Trie {
   TrieNode root;
   Database database;
 
+  Cache cache;
   private void dfs(String curPrefix, TrieNode trieNode, ObservableList<String> observableList) {
     if (trieNode.endOfWord) {
       observableList.add(curPrefix);
@@ -41,6 +42,7 @@ public class Trie {
   public Trie() {
     root = new TrieNode();
     database = new Database("jdbc:mysql://localhost:3306/DictionaryDatabase", "root", "Khongco2004@");
+    cache = new Cache();
   }
 
   public void insertWord(String word) {
@@ -53,13 +55,21 @@ public class Trie {
     cur.endOfWord = true;
   }
 
-  public void insertWordFromDatabase() throws SQLException {
+  public void insertAllWord() throws SQLException {
     database.connectToDatabase();
     ResultSet resultSet = database.queryGetData("select word from av");
     while(resultSet.next()) {
       insertWord(upperCaseFirstLetter
           (resultSet.getString("word")));
     }
+    resultSet.close();
+
+    ResultSet resultSet1 = database.queryGetData("select word from YourDictionary");
+    while (resultSet1.next()) {
+      insertWord(resultSet1.getString("word"));
+    }
+    resultSet1.close();
+    database.disconnectToDatabase();
   }
 
   public ObservableList<String> autoComplete(String prefix) {

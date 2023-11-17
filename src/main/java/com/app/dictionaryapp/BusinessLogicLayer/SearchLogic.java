@@ -21,7 +21,6 @@ public class SearchLogic {
                 return "";
             }
         } catch (Exception e) {
-            e.printStackTrace();
             return "";
         }
     }
@@ -56,9 +55,9 @@ public class SearchLogic {
     }
 
     public String getHtmlFromCache(String text) {
-        if (!cache.getDataFromCache(text).getClass().equals(Exception.class)) {
+        if (!cache.getDataFromCache(text).isEmpty()) {
             return processHtml(cache.getDataFromCache(text).getLast());
-        } else if (cache.getDataFromCache(text).getClass().equals(Exception.class)
+        } else if (cache.getDataFromCache(text).isEmpty()
         && !getDescriptionFromYourDictionary(text).equals("")) {
             return getDescriptionFromYourDictionary(text);
         } else {
@@ -81,11 +80,5 @@ public class SearchLogic {
 
 
         return document.toString();
-    }
-
-
-    public static void main(String[] args) {
-        Exception exception = new Exception();
-        System.out.println(exception.getClass().equals(Exception.class));
     }
 }

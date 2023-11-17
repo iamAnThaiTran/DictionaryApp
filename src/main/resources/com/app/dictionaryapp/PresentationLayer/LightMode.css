@@ -3,14 +3,11 @@
 }
 
 #displayWordSound {
-
+    -fx-background-color: #ffffff;
 }
 
 #mainPane {
-
-}
-#introPane {
-    -fx-background-image: url("Icon/IntroBackground.jpg");
+    -fx-background-color: #ffefef;
 }
 
 #textTranslation {
@@ -113,18 +110,21 @@
     /*-fx-effect: dropshadow(gaussian, rgb(87, 119, 250), 10, 0, 5.0, 5.0);*/
     -fx-background-color: transparent;
     -fx-base: transparent;
-    -fx-border-color: black;
+    -fx-border-color: #fde0e0;
     -fx-text-fill: black;
     /*-fx-border-color: transparent 001A11FF transparent transparent;*/
 }
 
+#suggestionWordTableView .column-header{
+    -fx-background-color: #dce0ff;
+}
 
 
 #suggestionWordTableView .cell {
     -fx-text-fill: #000000;
     -fx-border-color: transparent transparent #4a66fa transparent;
     -fx-border-width: 1px;
-    -fx-font-size: 20px;
+    -fx-font-size: 19px;
 }
 
 #suggestionWordTableView .cell:selected {
@@ -132,15 +132,9 @@
 }
 
 #suggestionWordCol .text {
-    -fx-font-size: 15px;
+    -fx-font-size: 19px;
 }
-#displayWordSound {
-    -fx-background-color: #05193a;
-    -fx-border-color: #307AA7FF;
-    /*-fx-alignment: center left;*/
-    /*-fx-alignment: center left;*/
-    -fx-content-display: left;
-}
+
 #word {
     -fx-font-size : 50
 }
@@ -152,4 +146,8 @@
 }
 #settingPane.toggle-button.text {
     -fx-font-size : 20px;
+}
+
+.label {
+    -fx-text-fill: #131625;
 }

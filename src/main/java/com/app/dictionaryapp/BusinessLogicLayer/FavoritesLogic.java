@@ -5,6 +5,11 @@ import javafx.collections.ObservableList;
 
 public class FavoritesLogic {
     private Txt txt = new Txt("src/main/resources/com/app/dictionaryapp/PresentationLayer/Txt/Favorites.txt");
+    private static final FavoritesLogic instance = new FavoritesLogic();
+
+    private FavoritesLogic() {
+
+    }
 
     public ObservableList<String> getContentInFavourite() {
         return txt.getContentInFile();
@@ -30,5 +35,9 @@ public class FavoritesLogic {
             }
         }
         return false;
+    }
+
+    public static FavoritesLogic getInstance() {
+        return instance;
     }
 }

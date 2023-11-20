@@ -7,11 +7,18 @@ import java.io.File;
 import java.nio.file.Files;
 
 public class AudioLogic {
-    private final APITextToSpeech apiTextToSpeech = new APITextToSpeech();
+    private final APITextToSpeech apiTextToSpeech = new APITextToSpeech("https://text-to-speech27.p.rapidapi.com/speech?text=",
+                                                                        "fc10970bb6msh2aad50d7bfa8cdap1b6d23jsna6a14e4b2126");
+
+    private static final AudioLogic instance = new AudioLogic();
+    private AudioLogic() {
+
+    }
 
     public String setTextFollowFormatRapidApi(String text) {
         return text.replace(" ", "%20");
     }
+
 
     /**
      * play audio
@@ -38,5 +45,9 @@ public class AudioLogic {
      */
     public void pauseAudio() {
 
+    }
+
+    public static AudioLogic getInstance() {
+        return instance;
     }
 }

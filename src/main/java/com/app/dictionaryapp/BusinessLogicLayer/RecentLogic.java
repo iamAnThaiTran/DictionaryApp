@@ -6,6 +6,10 @@ import javafx.collections.ObservableList;
 
 public class RecentLogic {
     private Txt txt = new Txt("src/main/resources/com/app/dictionaryapp/PresentationLayer/Txt/Recent.txt");
+    private static final RecentLogic instance = new RecentLogic();
+    private RecentLogic() {
+
+    }
 
     public void addRecentWord(String text) {
         txt.connect(); // connect
@@ -22,5 +26,9 @@ public class RecentLogic {
         ObservableList<String> observableList = txt.getContentInFile();
         FXCollections.reverse(observableList);
         return observableList;
+    }
+
+    public static RecentLogic getInstance() {
+        return instance;
     }
 }

@@ -1,15 +1,12 @@
 package com.app.dictionaryapp.DataAccessLayer;
 
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPool;
 public class Cache {
 
-  private Jedis jedis = new Jedis("localhost", 6379);
-  private Database database = new Database("jdbc:mysql://localhost:3306/DictionaryDatabase", "root",
+  private final Jedis jedis = new Jedis("localhost", 6379);
+  private final Database database = new Database("jdbc:mysql://localhost:3306/DictionaryDatabase", "root",
       "Khongco2004@");
 
 

@@ -226,23 +226,14 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="140.0" layoutY="71.0" prefHeight="661.0" prefWidth="822.0" visible="false">
+      <AnchorPane fx:id="introPane" layoutX="1.0" prefHeight="800.0" prefWidth="1198.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="TOP" layoutX="304.0" layoutY="69.0" prefHeight="116.0" prefWidth="214.0" text="Setting">
-               <font>
-                  <Font size="50.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="introPane" layoutX="1.0" prefHeight="800.0" prefWidth="1100.0" visible="false">
-         <children>
-            <ImageView fx:id="logoIntro" fitHeight="182.0" fitWidth="528.0" layoutX="286.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="logoIntro" fitHeight="182.0" fitWidth="528.0" layoutX="335.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Icon/Logo.png" />
                </image>
             </ImageView>
-            <MediaView fx:id="mediaIntro" fitHeight="200.0" fitWidth="200.0" layoutX="450.0" layoutY="400.0" />
+            <MediaView fx:id="mediaIntro" fitHeight="200.0" fitWidth="200.0" layoutX="499.0" layoutY="400.0" />
          </children></AnchorPane>
       <WebView fx:id="webView" layoutX="346.0" layoutY="311.0" prefHeight="492.0" prefWidth="852.0" visible="false" />
       <AnchorPane fx:id="settingPane" layoutX="337.0" layoutY="138.0" prefHeight="526.0" prefWidth="517.0" visible="false">

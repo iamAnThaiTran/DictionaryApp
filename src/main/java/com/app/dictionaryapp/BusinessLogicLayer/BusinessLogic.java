@@ -153,25 +153,26 @@ public class BusinessLogic {
     private Label labelTextTranslation;
 
     // recent logic
-    private final RecentLogic recentLogic = new RecentLogic();
+    private final RecentLogic recentLogic = RecentLogic.getInstance();
 
     // favorites logic
-    private final FavoritesLogic favoritesLogic = new FavoritesLogic();
+    private final FavoritesLogic favoritesLogic = FavoritesLogic.getInstance();
 
     // audio logic
-    private final AudioLogic audioLogic = new AudioLogic();
+    private final AudioLogic audioLogic = AudioLogic.getInstance();
 
     // search logic
     private final SearchLogic searchLogic = new SearchLogic();
 
     // edit logic
-    private final EditLogic editLogic = new EditLogic();
+    private final EditLogic editLogic = EditLogic.getInstance();
 
     //SuggestionWord
     private final SuggestionWordLogic suggestionWordLogic = new SuggestionWordLogic();
 
     // TextTranslate
-    private final APITextTranslate apiTextTranslate = new APITextTranslate();
+    private final APITextTranslate apiTextTranslate = new APITextTranslate("https://text-translator2.p.rapidapi.com/translate"
+                                                                            , "6f22e6bbf4mshc8e808871b5b310p1c99cajsnda97e360477f");
 
 
     private final Object object = new Object();

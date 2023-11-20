@@ -1,6 +1,6 @@
 package com.app.dictionaryapp.BusinessLogicLayer;
 
-public class API {
+public abstract class API {
     private String APIURL;
     private String APIKey;
 

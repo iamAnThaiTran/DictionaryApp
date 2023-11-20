@@ -6,6 +6,11 @@ import java.sql.SQLException;
 
 public class EditLogic {
     private final Database database = new Database("jdbc:mysql://localhost:3306/DictionaryDatabase", "root", "Khongco2004@");
+    private static final EditLogic instance = new EditLogic();
+
+    private EditLogic() {
+
+    }
 
     public boolean insert(String text, String description) {
         database.connectToDatabase();
@@ -54,5 +59,9 @@ public class EditLogic {
         } else {
             return false;
         }
+    }
+
+    public static EditLogic getInstance() {
+        return instance;
     }
 }

@@ -1,7 +1,6 @@
 package com.app.dictionaryapp.DataAccessLayer;
 
 import java.io.PrintWriter;
-import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -10,7 +9,7 @@ import java.io.FileWriter;
 import java.util.Scanner;
 
 public class Txt {
-    private String pathFile; // luu path file
+    private final String pathFile; // luu path file
     private File file; // mo file
 
     public Txt(String pathFile) {

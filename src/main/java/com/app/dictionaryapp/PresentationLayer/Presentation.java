@@ -62,7 +62,7 @@ public class Presentation extends Application {
         mediaPlayerAudio.play();
 
         cache.putDataFromMySQL();
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(5), actionEvent -> {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(7), actionEvent -> {
             introPane.setVisible(false);
             mediaPlayer.pause();
             mediaPlayerAudio.pause();

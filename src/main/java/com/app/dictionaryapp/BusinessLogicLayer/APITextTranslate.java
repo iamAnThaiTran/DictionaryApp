@@ -6,8 +6,13 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import org.json.*;
 
-public class APITextTranslate {
-    private final API api = new API("https://text-translator2.p.rapidapi.com/translate", "6f22e6bbf4mshc8e808871b5b310p1c99cajsnda97e360477f ");
+public class APITextTranslate extends API {
+    // https://text-translator2.p.rapidapi.com/translate
+    // 6f22e6bbf4mshc8e808871b5b310p1c99cajsnda97e360477f
+
+    public APITextTranslate(String APIURL, String APIKey) {
+        super(APIURL, APIKey);
+    }
 
     public String translate(String text) {
         String json;
@@ -16,9 +21,9 @@ public class APITextTranslate {
         String textFormat = "source_language=en&target_language=vi&text=" + text;
 
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(api.getAPIURL()))
+                .uri(URI.create(getAPIURL()))
                 .header("content-type", "application/x-www-form-urlencoded")
-                .header("X-RapidAPI-Key", api.getAPIKey())
+                .header("X-RapidAPI-Key", getAPIKey())
                 .header("X-RapidAPI-Host", "text-translator2.p.rapidapi.com")
                 .method("POST", HttpRequest.BodyPublishers.ofString(textFormat))
                 .build();

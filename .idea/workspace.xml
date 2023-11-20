@@ -5,15 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27d5082d-b2f1-4f51-a982-13a95348dd5a" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/LightModeWebView.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/API.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/APITextToSpeech.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/APITextToSpeech.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/APITextTranslate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/APITextTranslate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/AudioLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/AudioLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/BusinessLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/BusinessLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/SearchLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/SearchLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/SuggestionWordLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/SuggestionWordLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/Trie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/Trie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/DataAccessLayer/Object.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/DataAccessLayer/Object.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/DarkMode.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/DarkMode.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/LightMode.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/LightMode.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/EditLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/EditLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/FavoritesLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/FavoritesLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/RecentLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/RecentLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/DataAccessLayer/Cache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/DataAccessLayer/Cache.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/DataAccessLayer/Txt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/DataAccessLayer/Txt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/PresentationLayer/Presentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/PresentationLayer/Presentation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Txt/Favorites.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Txt/Favorites.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Txt/Recent.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/Txt/Recent.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/index.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/dictionaryapp/PresentationLayer/index.fxml" afterDir="false" />
@@ -241,7 +244,11 @@
       <workItem from="1700120049833" duration="16010000" />
       <workItem from="1700212227917" duration="2414000" />
       <workItem from="1700228346192" duration="8986000" />
-      <workItem from="1700239353507" duration="2774000" />
+      <workItem from="1700239353507" duration="3112000" />
+      <workItem from="1700275076373" duration="2873000" />
+      <workItem from="1700284262321" duration="583000" />
+      <workItem from="1700373512277" duration="9000" />
+      <workItem from="1700482092921" duration="957000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -285,17 +292,8 @@
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/SearchLogic.java</url>
-          <line>13</line>
-          <properties class="com.app.dictionaryapp.BusinessLogicLayer.SearchLogic" method="getDescriptionFromYourDictionary">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/BusinessLogic.java</url>
-          <line>492</line>
+          <line>493</line>
           <properties class="com.app.dictionaryapp.BusinessLogicLayer.BusinessLogic" method="clickStarToMark">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -304,7 +302,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/BusinessLogic.java</url>
-          <line>501</line>
+          <line>502</line>
           <properties class="com.app.dictionaryapp.BusinessLogicLayer.BusinessLogic" method="clickStarToUnMark">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -313,7 +311,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/BusinessLogic.java</url>
-          <line>434</line>
+          <line>435</line>
           <properties class="com.app.dictionaryapp.BusinessLogicLayer.BusinessLogic" method="addBtnEdit">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -322,7 +320,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/BusinessLogic.java</url>
-          <line>194</line>
+          <line>195</line>
           <properties class="com.app.dictionaryapp.BusinessLogicLayer.BusinessLogic" method="btnSearchAction">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -339,13 +337,8 @@
           <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/SearchLogic.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/app/dictionaryapp/BusinessLogicLayer/BusinessLogic.java</url>
-          <line>332</line>
+          <line>333</line>
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

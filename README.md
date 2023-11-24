@@ -1,4 +1,3 @@
-# DictionaryApp
 <h1>English Learning App (JavaFX)</h1>
 
 <h2>Overview</h2>

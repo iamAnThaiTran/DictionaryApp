@@ -22,8 +22,19 @@ This is a group project to develop an English Learning App using JavaFX. The app
 ## Getting Started
 Follow these steps to get the project up and running on your local machine.
 ### Prerequisites
-- **Java Development Kit (JDK) 8 or higher**
-  - Download and install it from [here](https://www.oracle.com/java/technologies/javase-downloads.html).
+- **Java Development Kit (JDK) 8 or higher:**
+  - Download and install it from [Oracle's official website](https://www.oracle.com/java/technologies/javase-downloads.html).
+
+- **JavaFX SDK:**
+  - Install the JavaFX SDK. You can find it [here](https://openjfx.io/).
+
+- **IntelliJ IDEA:**
+  - Download and install IntelliJ IDEA from [JetBrains' official website](https://www.jetbrains.com/idea/download/).
+
+- **Redis database:**
+  - Install Redis on your local machine or use a cloud-based Redis service.
+  - Make sure to configure the Redis connection in your JavaFX app.
+
 
 
 ## Features

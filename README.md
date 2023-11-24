@@ -37,7 +37,11 @@ Follow these steps to get the project up and running on your local machine.
     
 - **MySQL database:**
   - Install MySQL database on your local machine
+  - Add data from folder 'Database' to database name 'DictionaryDatabase'
   - Download and install MySQL database follow tutorial [here](https://www.javatpoint.com/how-to-install-mysql).
+ 
+###Install
+
 ## Features
 
 

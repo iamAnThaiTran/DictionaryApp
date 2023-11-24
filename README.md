@@ -27,6 +27,8 @@ This is a group project to develop an English Learning App using JavaFX. The app
 ### 1. Modern User Interface:
 - Beautiful, easy-to-use graphical interface.
 - Offers the option for both light and dark modes to cater to users' preferences and usage environments.
+<img src="https://github.com/hieudz2k4/DictionaryApp/blob/master/Picture/DarkMode.png">
+<img src="https://github.com/hieudz2k4/DictionaryApp/blob/master/Picture/Vietnamese.png">
 
 ### 2. Diversified English Vocabulary:
 - Provides a diverse and extensive vocabulary database with 103344 words.
@@ -44,7 +46,6 @@ This is a group project to develop an English Learning App using JavaFX. The app
 - Designs educational games to reinforce language skills.
 - Creates an enjoyable and engaging experience for learning and practicing English.
 
-## Some images of the application:
 
 
 

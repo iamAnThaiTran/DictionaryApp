@@ -7,6 +7,7 @@ This is a group project to develop an English Learning App using JavaFX. The app
 - **Đào Đình Hiếu**
   - MSV: 22028221
   - Role: [Vai trò của bạn]
+  - Contact: hieuhoctap2004@gmail.com
 
 - **Nguyễn Tuấn Anh**
   - MSV: [Số MSV của bạn]

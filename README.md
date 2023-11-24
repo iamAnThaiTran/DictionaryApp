@@ -22,7 +22,9 @@ This is a group project to develop an English Learning App using JavaFX. The app
 ## Getting Started
 Follow these steps to get the project up and running on your local machine.
 ### Prerequisites
-**Before you begin, make sure you have the following installed:**
+- **Java Development Kit (JDK) 8 or higher**
+  - Download and install it from [here](https://www.oracle.com/java/technologies/javase-downloads.html).
+
 
 ## Features
 

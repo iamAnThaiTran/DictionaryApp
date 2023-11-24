@@ -22,16 +22,12 @@ This is a group project to develop an English Learning App using JavaFX. The app
 
 ## Features
 
-### 1. Vocabulary Building
-- Explore a comprehensive database of English words.
-- View word meanings, examples, and related information.
-- Practice vocabulary through quizzes and exercises.
+### 1. Modern User Interface:
+- Offers the option for both light and dark modes to cater to users' preferences and usage environments.
+- The light mode reduces eye strain and is suitable for daytime learning, while the dark mode minimizes glare and is convenient for nighttime study.
 
-### 2. Language Practice Exercises
-- Engage in language practice exercises to enhance your skills.
-- Practice listening, speaking, reading, and writing in English.
-- Receive instant feedback and track your progress.
+### 2. Diversified English Vocabulary:
 
-### 3. Educational Games
-- Play interactive games designed to reinforce language skills.
-- Enjoy a fun and engaging way to learn and practice English.
+### 3. Progress Tracking:
+
+### 4. Educational Games:

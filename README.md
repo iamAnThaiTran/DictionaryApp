@@ -20,7 +20,9 @@ This is a group project to develop an English Learning App using JavaFX. The app
   - Contact: 
 
 ## Getting Started
-
+Follow these steps to get the project up and running on your local machine.
+### Prerequisites
+**Before you begin, make sure you have the following installed:**
 
 ## Features
 

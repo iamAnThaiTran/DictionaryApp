@@ -34,7 +34,9 @@ Follow these steps to get the project up and running on your local machine.
 - **Redis database:**
   - Install Redis on your local machine or use a cloud-based Redis service.
   - Make sure to configure the Redis connection in your JavaFX app.
-
+- **MySQL database:**
+  - Install MySQL database on your local machine
+  - Add table in folder "Database" to database name "DictionaryDatabase"
 
 
 ## Features

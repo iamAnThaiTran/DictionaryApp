@@ -4,53 +4,40 @@
 This is a group project to develop an English Learning App using JavaFX. The app aims to provide users with an interactive platform for learning English, including features such as vocabulary building, grammar lessons, and language practice exercises.
 
 ## Team Members
-- **Đào Đình Hiếu**
-  - Student ID: 22028221
-  - Role: 
-  - Contact: hieuhoctap2004@gmail.com
 
-- **Nguyễn Tuấn Anh**
-  - Student ID: 
-  - Role: 
-  - Contact: 
+### 1. Đào Đình Hiếu
+- Student ID: 22028221
+- Role: 
+- Contact: hieuhoctap2004@gmail.com
 
-- **Trần Thái An**
-  - Student ID: 
-  - Role: 
-  - Contact: 
+### 2. Nguyễn Tuấn Anh
+- Student ID: 
+- Role: 
+- Contact: 
 
-## Getting Started
-Follow these steps to get the project up and running on your local machine.
-### Prerequisites
-- **Java Development Kit (JDK) 8 or higher:**
-  - Download and install it from [Oracle's official website](https://www.oracle.com/java/technologies/javase-downloads.html).
-
-- **JavaFX SDK:**
-  - Install the JavaFX SDK. You can find it [here](https://openjfx.io/).
-
-- **IntelliJ IDEA:**
-  - Download and install IntelliJ IDEA from [JetBrains' official website](https://www.jetbrains.com/idea/download/).
-
-- **Redis database:**
-  - Install Redis on your local machine or use a cloud-based Redis service.
-  - Download and install Redis from [Redis official website](https://redis.io/download/).
-    
-- **MySQL database:**
-  - Install MySQL database on your local machine
-  - Add data from folder 'Database' to database name 'DictionaryDatabase'
-  - Download and install MySQL database follow tutorial [here](https://www.javatpoint.com/how-to-install-mysql).
- 
-### Install
-**1. Clone the repository.**
-```bash
-git clone https://github.com/your-username/english-learning-app.git
-```
+### 3. Trần Thái An
+- Student ID: 
+- Role: 
+- Contact: 
 
 ## Features
 
+### 1. Vocabulary Building
+- Explore a comprehensive database of English words.
+- View word meanings, examples, and related information.
+- Practice vocabulary through quizzes and exercises.
 
-## Contributing
+### 2. Grammar Lessons
+- Access structured grammar lessons for various proficiency levels.
+- Learn grammar rules and usage through interactive content.
+- Test your understanding with grammar quizzes.
 
+### 3. Language Practice Exercises
+- Engage in language practice exercises to enhance your skills.
+- Practice listening, speaking, reading, and writing in English.
+- Receive instant feedback and track your progress.
 
-## License
-
+### 4. User Profiles
+- Create personalized user profiles.
+- Track your learning progress and achievements.
+- Set language learning goals.

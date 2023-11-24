@@ -1,4 +1,4 @@
-<img src="https://github.com/hieudz2k4/CONTACT-ME/blob/main/Image%20GitHub/Quote.jpg">
+<img src="https://github.com/hieudz2k4/DictionaryApp/blob/master/src/main/resources/com/app/dictionaryapp/PresentationLayer/Icon/Logo.png">
 
 <h1>English Learning App (JavaFX)</h1>
 

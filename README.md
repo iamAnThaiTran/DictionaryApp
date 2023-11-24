@@ -1,7 +1,7 @@
 # English Learning App (JavaFX)
 
 ## Overview
-This is a group project to develop an English Learning App using JavaFX. The app aims to provide users with an interactive platform for learning English, including features such as vocabulary building, grammar lessons, and language practice exercises.
+This is a group project to develop an English Learning App using JavaFX. The app aims to provide users with an interactive platform for learning English, including features such as vocabulary building, language practice exercises, and educational games.
 
 ## Team Members
 
@@ -27,17 +27,11 @@ This is a group project to develop an English Learning App using JavaFX. The app
 - View word meanings, examples, and related information.
 - Practice vocabulary through quizzes and exercises.
 
-### 2. Grammar Lessons
-- Access structured grammar lessons for various proficiency levels.
-- Learn grammar rules and usage through interactive content.
-- Test your understanding with grammar quizzes.
-
-### 3. Language Practice Exercises
+### 2. Language Practice Exercises
 - Engage in language practice exercises to enhance your skills.
 - Practice listening, speaking, reading, and writing in English.
 - Receive instant feedback and track your progress.
 
-### 4. User Profiles
-- Create personalized user profiles.
-- Track your learning progress and achievements.
-- Set language learning goals.
+### 3. Educational Games
+- Play interactive games designed to reinforce language skills.
+- Enjoy a fun and engaging way to learn and practice English.

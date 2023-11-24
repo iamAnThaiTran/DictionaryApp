@@ -1,10 +1,11 @@
 <img src="https://github.com/hieudz2k4/CONTACT-ME/blob/main/Image%20GitHub/Quote.jpg">
-# English Learning App (JavaFX)
 
-## Overview
+<h1>English Learning App (JavaFX)</h1>
+
+<h2>Overview</h2>
 This is a group project to develop an English Learning App using JavaFX. The app aims to provide users with an interactive platform for learning English, including features such as vocabulary building, language practice exercises, and educational games.
 
-## Team Members
+<h2>Team Members</h2>
 
 ### 1. Đào Đình Hiếu
 - Student ID: 22028221

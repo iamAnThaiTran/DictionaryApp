@@ -27,7 +27,7 @@ This is a group project to develop an English Learning App using JavaFX. The app
 - Offers the option for both light and dark modes to cater to users' preferences and usage environments.
 
 ### 2. Diversified English Vocabulary:
-- Provides a diverse and extensive vocabulary database.
+- Provides a diverse and extensive vocabulary database with 103344 words.
 - Supports learners in understanding vocabulary meanings through examples and related information.
 
 ### 3. Progress Tracking:
@@ -38,4 +38,9 @@ This is a group project to develop an English Learning App using JavaFX. The app
 - Using redis database to cache data helps display words faster than sql queries.
   
 ### 5. Educational Games:
+- Designs educational games to reinforce language skills.
+- Creates an enjoyable and engaging experience for learning and practicing English.
+
+## Some images of the application:
+
 

@@ -10,7 +10,6 @@ import org.jsoup.nodes.Document;
 public class SearchLogic {
     private final Database database = new Database("jdbc:mysql://localhost:3306/DictionaryDatabase", "root", "Khongco2004@");
     private final Cache cache = new Cache();
-
     public String getDescriptionFromYourDictionary(String text) {
         ResultSet resultSet = database.queryGetData("select description from YourDictionary where word = '" + text + "'");
 
@@ -58,7 +57,7 @@ public class SearchLogic {
         if (!cache.getDataFromCache(text).isEmpty()) {
             return processHtml(cache.getDataFromCache(text).getLast());
         } else if (cache.getDataFromCache(text).isEmpty()
-        && !getDescriptionFromYourDictionary(text).equals("")) {
+            && !getDescriptionFromYourDictionary(text).equals("")) {
             return getDescriptionFromYourDictionary(text);
         } else {
             return "";
@@ -80,5 +79,13 @@ public class SearchLogic {
 
 
         return document.toString();
+    }
+
+    public String getDescription(String text) {
+        if (!cache.getDataFromCache(text).isEmpty()) {
+            return cache.getDataFromCache(text).get(1);
+        } else {
+            return getDescriptionFromYourDictionary(text);
+        }
     }
 }

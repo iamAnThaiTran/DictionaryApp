@@ -22,6 +22,7 @@ public class Presentation extends Application {
     private FXMLLoader fxmlLoader;
     private Scene scene;
     private BusinessLogic businessLogic;
+    private static Stage primaryStage;
     private static Cache cache = new Cache();
     @Override
     public void start(Stage stage) throws IOException {
@@ -62,13 +63,18 @@ public class Presentation extends Application {
         mediaPlayerAudio.play();
 
         cache.putDataFromMySQL();
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(7), actionEvent -> {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(6), actionEvent -> {
             introPane.setVisible(false);
             mediaPlayer.pause();
             mediaPlayerAudio.pause();
         }));
 
         timeline.play();
+        primaryStage = stage;
+    }
+
+    public static Stage getStage() {
+        return primaryStage;
     }
 
     public static void main(String[] args) {

@@ -136,7 +136,7 @@
                         <Image url="@Icon/Star.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="downloadClick" fitHeight="36.0" fitWidth="36.0" layoutX="16.0" layoutY="100.0" onMouseClicked="#clickDownloadClick" pickOnBounds="true" preserveRatio="true" styleClass="imageViewScale" visible="false">
+                  <ImageView fx:id="downloadClick" fitHeight="36.0" fitWidth="36.0" layoutX="16.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true" styleClass="imageViewScale" visible="false">
                      <image>
                         <Image url="@Icon/DownloadClick.png" />
                      </image>

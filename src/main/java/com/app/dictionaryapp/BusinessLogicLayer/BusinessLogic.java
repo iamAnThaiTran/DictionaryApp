@@ -1,6 +1,13 @@
 package com.app.dictionaryapp.BusinessLogicLayer;
 
 import animatefx.animation.*;
+import com.app.dictionaryapp.PresentationLayer.Presentation;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.Files;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,8 +29,7 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import com.jfoenix.controls.JFXToggleButton;
 import com.app.dictionaryapp.DataAccessLayer.Object;
-
-import org.jsoup.Jsoup;
+import javafx.stage.FileChooser;
 
 public class BusinessLogic {
 
@@ -206,6 +212,9 @@ public class BusinessLogic {
     // key event text
     @FXML
     void textKeyEvent(KeyEvent event) throws SQLException {
+        download.setVisible(true);
+        downloadClick.setVisible(false);
+
         if (mode.equals(MODE.SEARCH)) {
             // User click enter.
             if (event.getCode() == KeyCode.ENTER) {
@@ -510,19 +519,24 @@ public class BusinessLogic {
     // Download Button
 
     @FXML
-    void clickDownload(MouseEvent event) {
+    void clickDownload(MouseEvent event) throws IOException {
         download.setVisible(false);
         downloadClick.setVisible(true);
 
-        String html = searchLogic.getHtmlFromCache(txtFieldSearch.getText().toLowerCase());
-        String htmlToPlainText = Jsoup.parse(html).wholeText();
+        String text = word.getText() + "\n"
+            + pronunciation.getText() + "\n"
+            + searchLogic.getDescription(txtFieldSearch.getText());
 
-    }
 
-    @FXML
-    void clickDownloadClick(MouseEvent event) {
-        downloadClick.setVisible(false);
-        download.setVisible(true);
+        System.out.println(text);
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select File To Download");
+        File file = fileChooser.showSaveDialog(Presentation.getStage());
+
+        if (file != null) {
+            saveSystem(file, text);
+        }
     }
 
     void loadCssForWebView() {
@@ -621,5 +635,11 @@ public class BusinessLogic {
                 setFavoritesBtn(text);
             }
         }
+    }
+
+    void saveSystem(File file, String text) throws IOException {
+        PrintWriter printWriter = new PrintWriter(file);
+        printWriter.write(text);
+        printWriter.close();
     }
 }

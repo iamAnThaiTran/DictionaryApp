@@ -1,3 +1,4 @@
+<img src="https://github.com/hieudz2k4/CONTACT-ME/blob/main/Image%20GitHub/Quote.jpg">
 # English Learning App (JavaFX)
 
 ## Overview

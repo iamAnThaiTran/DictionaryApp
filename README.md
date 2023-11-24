@@ -34,6 +34,7 @@ This is a group project to develop an English Learning App using JavaFX. The app
 
 ### 3. Progress Tracking:
 - Stores searched words and favorite words for a seamless user experience.
+- You can download words and their meanings to your personal computer as a txt file.
 
 ### 4. Search Engine
 - Use trie data structure to optimize word suggestions.

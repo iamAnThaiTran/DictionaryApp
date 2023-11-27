@@ -9,7 +9,7 @@ This is a group project to develop an English Learning App using JavaFX. The app
 
 ### 1. Đào Đình Hiếu
 - Student ID: 22028221
-- Role: Project Manager(PM), Front End(FE), Back End(BE).
+- Role: Project Manager(PM), Fullstack Developer.
 - Contact: hieuhoctap2004@gmail.com
 
 ### 2. Nguyễn Tuấn Anh

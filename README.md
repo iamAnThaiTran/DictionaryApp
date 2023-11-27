@@ -14,7 +14,7 @@ This is a group project to develop an English Learning App using JavaFX. The app
 
 ### 2. Nguyễn Tuấn Anh
 - Student ID: 
-- Role: Front End(FE), Back End(BE).
+- Role: 
 - Contact: 
 
 ### 3. Trần Thái An

@@ -18,9 +18,9 @@ This is a group project to develop an English Learning App using JavaFX. The app
 - Contact: 
 
 ### 3. Trần Thái An
-- Student ID: 
+- Student ID: 22028210
 - Role: Game Development.
-- Contact: 
+- Contact: anthaitran1001@gmail.com
 
 ## Features
 
